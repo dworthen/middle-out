@@ -1,0 +1,1 @@
+export { registerValidator } from './Registers';

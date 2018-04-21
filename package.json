@@ -1,0 +1,28 @@
+{
+  "name": "middle-out",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/umd/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/typings/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "prebuild": "tsc --target ES2015 --module ES2015",
+    "release": "standard-version"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "standard-version": "^4.3.0",
+    "typescript": "^2.7.2",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.12"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.12"
+  }
+}
