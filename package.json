@@ -45,6 +45,7 @@
       "json",
       "lcov",
       "text",
+      "html",
       "cobertura"
     ],
     "transform": {
