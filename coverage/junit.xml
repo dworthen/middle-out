@@ -1,0 +1,6 @@
+<testsuites name="jest tests" tests="1" failures="0" time="1.981">
+  <testsuite name="Testing" errors="0" failures="0" skipped="0" timestamp="2018-04-23T21:11:40" time="1.981" tests="1">
+    <testcase classname="Testing adding" name="Testing adding" time="0.004">
+    </testcase>
+  </testsuite>
+</testsuites>
