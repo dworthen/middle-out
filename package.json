@@ -6,7 +6,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/typings/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack",
     "prebuild": "tsc --target ES2015 --module ES2015",
     "release": "standard-version"
@@ -15,14 +15,44 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "jest": "^22.4.3",
+    "jest-junit": "^3.6.0",
     "standard-version": "^4.3.0",
+    "ts-jest": "^22.4.4",
     "typescript": "^2.7.2",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.12"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.12"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "testResultsProcessor": "jest-junit",
+    "collectCoverageFrom": [
+      "**/src/**/*.{js,ts,jsx,tsx}",
+      "!**/src/index.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "cobertura"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
+  },
+  "jest-junit": {
+      "output": "./coverage/junit.xml"
   }
 }
