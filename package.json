@@ -7,9 +7,15 @@
   "types": "dist/typings/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "webpack",
-    "prebuild": "tsc --target ES2015 --module ES2015",
-    "release": "standard-version"
+    "build:debugjest": "tsc ./__tests__/Reflect.spec.ts --target ES5 --lib es2015,dom --module commonjs --outDir ./dist/commonjs/ --declaration false --sourceMap true --strict true --experimentalDecorators true --emitDecoratorMetadata true",
+    "build:commonjs": "tsc",
+    "build:esm": "tsc --target ES2015 --module ES2015 --outDir ./dist/esm/ --declaration true --declarationDir ./dist/typings/",
+    "build:umd": "webpack",
+    "prebuild:umd": "npm run build:esm",
+    "release": "standard-version",
+    "prerelease": "npm run coverage",
+    "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "precoverage": "npm test -- --coverage"
   },
   "keywords": [],
   "author": "",

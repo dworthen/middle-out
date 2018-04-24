@@ -30,9 +30,9 @@ export function registerMetaData<T>(name: string): (config: T) => (target: any, 
         return (target, property) => {
             target[MiddleOutMetaDataSymbol] = target[MiddleOutMetaDataSymbol] || {};
             target[MiddleOutMetaDataSymbol][property] =
-                (target[MiddleOutMetaDataSymbol][property] || []).concat([
-                    [name, config]
-                ]);
+            (target[MiddleOutMetaDataSymbol][property] || []).concat([
+                [name, config]
+            ]);
         }
     }
 }
@@ -231,6 +231,8 @@ class P2 extends Person {
 // let p: {[key: string]: any} = {age: 10};
 // size({ min: 100})(p, 'age');
 let p = new P2();
+let symbols = Object.getOwnPropertySymbols(p);
+            console.log(symbols);
 let [isValid, errors] = validate(p);
 console.log(isValid, errors);
 
