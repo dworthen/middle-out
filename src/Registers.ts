@@ -231,16 +231,29 @@ class P2 extends Person {
 // let p: {[key: string]: any} = {age: 10};
 // size({ min: 100})(p, 'age');
 let p = new P2();
-let symbols = Object.getOwnPropertySymbols(p);
-            console.log(symbols);
-let [isValid, errors] = validate(p);
-console.log(isValid, errors);
+let os = Object.getOwnPropertySymbols(p);
+console.log(os);
+let is = Object.getOwnPropertySymbols(Object.getPrototypeOf(p));
+let test = Object.getPrototypeOf(p)[is[0]];
+console.log(test);
+console.log(is);
+let cs = Object.getOwnPropertySymbols(Object.getPrototypeOf(p).constructor)
+console.log(cs);
 
-// let [ , value = '' ] = getMetaData(p, 'age', 'displayName')[0] || [];
-// console.log(value);
+let p2 = {name: "Derek"};
+displayName("Dwayne")(p2, "name");
 
-console.log(JSON.stringify(p));
-console.log(JSON.stringify(toJSON(p)));
+let s2 = Object.getOwnPropertySymbols(p2);
+console.log(s2);
+
+// let [isValid, errors] = validate(p);
+// console.log(isValid, errors);
+
+// // let [ , value = '' ] = getMetaData(p, 'age', 'displayName')[0] || [];
+// // console.log(value);
+
+// console.log(JSON.stringify(p));
+// console.log(JSON.stringify(toJSON(p)));
 
 // let [[, fn, config]] = getValidators(p, "age", "Size");
 // console.log(fn(p, "age", config));

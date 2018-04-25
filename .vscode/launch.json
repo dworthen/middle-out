@@ -14,7 +14,7 @@
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
-            "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+            "program": "${workspaceFolder}/node_modules/jest/bin/jest",
         },
         {
             "type": "node",

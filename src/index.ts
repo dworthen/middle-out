@@ -1,1 +1,1 @@
-export { registerValidator } from './Registers';
+export { registerMetaData, getAllMetaData, getMetaData } from './Reflect';
