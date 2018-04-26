@@ -170,6 +170,7 @@ describe('Reflect API', () => {
         test('should return [] for object property with no metadata', () => {
             expect(getMetaData({name: "Derek"}, "name")).toEqual([]);
             expect(getMetaData({name: "Derek"}, "age")).toEqual([]);
+            expect(getMetaData({name: "Derek"}, "age", "displayName")).toBeUndefined();
         });
 
         test('should retrieve metadata for a single object property', () => {
@@ -203,9 +204,7 @@ describe('Reflect API', () => {
 
             let metaData = getMetaData(obj, "name", "nickname");
 
-            expect(metaData).toEqual([
-                ["nickname", "Dwayne"]
-            ]);
+            expect(metaData).toEqual("Dwayne");
 
         });
 
@@ -256,9 +255,7 @@ describe('Reflect API', () => {
 
             let metaData = getMetaData(obj, "name", "nickname");
 
-            expect(metaData).toEqual([
-                ["nickname", "Dwayne"]
-            ]);
+            expect(metaData).toEqual("Dwayne");
             
         });
 

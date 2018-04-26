@@ -38,7 +38,7 @@ export function getAllMetaData(target: {[key:string]: any}): {} {
     return meta;
 }
 
-export function getMetaData(target: {[key:string]: any}, property: string, name?: string): Array<[string, any]> {
+export function getMetaData(target: {[key:string]: any}, property: string, name?: string): Array<[string, any]> | any {
     if(target === undefined || target === null || typeof target !== 'object') {
         throw new TypeError(`Invalid argument 'target'. Expecting object but received ${target}.`);
     }
@@ -53,8 +53,10 @@ export function getMetaData(target: {[key:string]: any}, property: string, name?
 
     let meta = target[MiddleOutMetaDataSymbol] || {};
     let m = meta[property] || [];
-    return name
-        ? m.filter((v: Array<any>) => ((v[0] || '') === name))
-        // ? {[property]: { [name]: m[property][name] }}
-        : m;
+
+    if(name) {
+        let [ , value] = m.filter((v: any[]) => ((v[0] || '') === name))[0] || [undefined, undefined];
+        return value;
+    }
+    return m;
 }
