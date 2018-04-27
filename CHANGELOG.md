@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.3"></a>
+# [1.0.0-alpha.3](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2018-04-27)
+
+
+### Bug Fixes
+
+* Change Reflect API to use overloads ([82ce369](https://github.com/dworthen/middle-out/commit/82ce369))
+
+
+### BREAKING CHANGES
+
+* Removed:
+- getAllMetaData
+Changed:
+- getMetaData overloads to handle getting all metadata
+for an object, for an object/property key and a single
+piece of metadata.
+
+
+
 <a name="1.0.0-alpha.2"></a>
 # [1.0.0-alpha.2](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2018-04-26)
 
