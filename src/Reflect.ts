@@ -29,22 +29,16 @@ export function registerMetaData<T>(name: string): (config: T) => (target: {[key
     }
 }
 
-export function getAllMetaData(target: {[key:string]: any}): {} {
+export function getMetaData(target: {[key:string]: any}): {};
+export function getMetaData(target: {[key:string]: any}, porperty: string): Array<[string, any]>;
+export function getMetaData(target: {[key:string]: any}, porperty: string, name: string): any;
+export function getMetaData(target: {[key:string]: any}, property?: string, name?: string): Array<[string, any]> | any {
     if(target === undefined || target === null || typeof target !== 'object') {
         throw new TypeError(`Invalid argument 'target'. Expecting object but received ${target}.`);
     }
 
-    let meta = target[MiddleOutMetaDataSymbol] || {};
-    return meta;
-}
-
-export function getMetaData(target: {[key:string]: any}, property: string, name?: string): Array<[string, any]> | any {
-    if(target === undefined || target === null || typeof target !== 'object') {
-        throw new TypeError(`Invalid argument 'target'. Expecting object but received ${target}.`);
-    }
-
-    if(property === undefined || property === null || typeof property !== 'string') {
-        throw new TypeError(`Invalid argument 'property'. Expecting string|number but received ${property}.`);
+    if(property !== undefined && (property === null || typeof property !== 'string')) {
+        throw new TypeError(`Invalid argument 'property'. Expecting string but received ${property}.`);
     }
 
     if(name !== undefined && typeof name !== 'string') {
@@ -52,11 +46,14 @@ export function getMetaData(target: {[key:string]: any}, property: string, name?
     }
 
     let meta = target[MiddleOutMetaDataSymbol] || {};
-    let m = meta[property] || [];
-
-    if(name) {
-        let [ , value] = m.filter((v: any[]) => ((v[0] || '') === name))[0] || [undefined, undefined];
-        return value;
+    
+    if(property) {
+        meta = meta[property] || [];
+        if(name) {
+            let [ , value] = meta.filter((v: any[]) => ((v[0] || '') === name))[0] || [undefined, undefined];
+            return value;
+        }
     }
-    return m;
+
+    return meta;
 }

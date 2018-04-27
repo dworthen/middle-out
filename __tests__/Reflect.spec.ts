@@ -1,4 +1,4 @@
-import { registerMetaData, getMetaData, getAllMetaData } from '../src/Reflect';
+import { registerMetaData, getMetaData } from '../src/Reflect';
 
 
 describe('Reflect API', () => {
@@ -93,12 +93,16 @@ describe('Reflect API', () => {
 
     });
 
-    describe('getAllMetaData', () => {
+    describe('getMetaData', () => {
 
-        test('should return {} for object with no metadata', () => {
-            expect(getAllMetaData({name: "Derek"})).toEqual({});
+        test('should return [] for object property with no metadata', () => {
+            let obj = {name: "Derek"};
+            expect(getMetaData(obj)).toEqual({});
+            expect(getMetaData(obj, "name")).toEqual([]);
+            expect(getMetaData(obj, "age")).toEqual([]);
+            expect(getMetaData(obj, "age", "displayName")).toBeUndefined();
         });
-        
+
         test('should retrieve all metadata for an object', () => {
             let register1 = registerMetaData<string>("nickname");
             let register2 = registerMetaData<number>("realAge");
@@ -106,7 +110,7 @@ describe('Reflect API', () => {
             register1("Dwayne")(obj, "name");
             register2(28)(obj, "age");
         
-            let metaData = getAllMetaData(obj);
+            let metaData = getMetaData(obj);
         
             expect(metaData).toEqual({
                 "name": [
@@ -134,7 +138,7 @@ describe('Reflect API', () => {
 
             let obj: {[key:string]: any} = new Obj();
 
-            let metaData = getAllMetaData(obj);
+            let metaData = getMetaData(obj);
         
             expect(metaData).toEqual({
                 "name": [
@@ -145,32 +149,6 @@ describe('Reflect API', () => {
                 ]
             });
             
-        });
-
-        test('should throw when improperly called', () => {
-    
-            expect(() => {
-                getAllMetaData()
-            }).toThrow();
-
-            expect(() => {
-                getAllMetaData(null)
-            }).toThrow();
-
-            expect(() => {
-                getAllMetaData(5)
-            }).toThrow();
-            
-        });
-
-    });
-
-    describe('getMetaData', () => {
-
-        test('should return [] for object property with no metadata', () => {
-            expect(getMetaData({name: "Derek"}, "name")).toEqual([]);
-            expect(getMetaData({name: "Derek"}, "age")).toEqual([]);
-            expect(getMetaData({name: "Derek"}, "age", "displayName")).toBeUndefined();
         });
 
         test('should retrieve metadata for a single object property', () => {
@@ -267,10 +245,6 @@ describe('Reflect API', () => {
 
             expect(() => {
                 getMetaData(5)
-            }).toThrow();
-
-            expect(() => {
-                getMetaData({name: "Derek"})
             }).toThrow();
 
             expect(() => {
