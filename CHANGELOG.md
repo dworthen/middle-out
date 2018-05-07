@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.4"></a>
+# [1.0.0-alpha.4](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2018-05-07)
+
+
+### Features
+
+* Add core validation logic ([a4abba0](https://github.com/dworthen/middle-out/commit/a4abba0))
+
+
+### BREAKING CHANGES
+
+* ADD:
+- registerValidator
+- getValidators
+- validate
+- errorTemplate
+
+
+
 <a name="1.0.0-alpha.3"></a>
 # [1.0.0-alpha.3](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2018-04-27)
 
