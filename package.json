@@ -18,6 +18,9 @@
     "precoverage": "npm test -- --coverage"
   },
   "keywords": [],
+  "files": [
+      "dist/**/*"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

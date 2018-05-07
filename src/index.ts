@@ -1,1 +1,1 @@
-export { registerMetaData, getAllMetaData, getMetaData } from './Reflect';
+export { registerMetaData, getMetaData } from './Reflect';

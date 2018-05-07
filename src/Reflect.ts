@@ -2,12 +2,12 @@ const MiddleOutMetaDataSymbol = Symbol("MiddleOutMetaData");
 
 export function registerMetaData<T>(name: string): (config: T) => (target: {[key:string]: any}, property: string) => void {
     if(name === undefined || name === null || typeof name !== 'string') {
-        throw new TypeError(`Missing or invalid type for argument 'name'. Expecting string but received ${name}.`);
+        throw new TypeError(`Invalid argument 'name'. Expecting string but received ${name}.`);
     }
 
     return config => {
         if(config === undefined || config === null) {
-            throw new TypeError(`Invalid argument 'config'. Expecting type any but received ${config}.`);
+            throw new TypeError(`Invalid argument 'config'. Expecting non-primative type but received ${config}.`);
         }
 
         return (target, property) => {
@@ -31,10 +31,10 @@ export function registerMetaData<T>(name: string): (config: T) => (target: {[key
 
 export function getMetaData(target: {[key:string]: any}): {};
 export function getMetaData(target: {[key:string]: any}, porperty: string): Array<[string, any]>;
-export function getMetaData(target: {[key:string]: any}, porperty: string, name: string): any;
-export function getMetaData(target: {[key:string]: any}, property?: string, name?: string): Array<[string, any]> | any {
+export function getMetaData(target: {[key:string]: any}, porperty: string, name: string): any | undefined;
+export function getMetaData(target: {[key:string]: any}, property?: string, name?: string): Array<[string, any]> | any | undefined {
     if(target === undefined || target === null || typeof target !== 'object') {
-        throw new TypeError(`Invalid argument 'target'. Expecting object but received ${target}.`);
+        throw new TypeError(`Invalid argument 'target'. Expecting non-primative type but received ${target}.`);
     }
 
     if(property !== undefined && (property === null || typeof property !== 'string')) {
