@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.7"></a>
+# [1.0.0-alpha.7](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2018-05-09)
+
+
+### Features
+
+* Add argument type checking function helper ([6809492](https://github.com/dworthen/middle-out/commit/6809492))
+
+
+
 <a name="1.0.0-alpha.6"></a>
 # [1.0.0-alpha.6](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.4...v1.0.0-alpha.6) (2018-05-09)
 
