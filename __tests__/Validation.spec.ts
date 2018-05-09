@@ -195,6 +195,12 @@ describe('Validation Registration API', () => {
 
     describe('validate', () => {
 
+        test('should throw when improperly called', () => {
+            expect(() => {
+                validate();
+            }).toThrow();
+        });
+
         test('should return [true, {}] when valid.', () => {
             let validationFn = (t: any, p: string, config = {min: 5}) => {
                 // return t && t[p] && t[p] > min;
