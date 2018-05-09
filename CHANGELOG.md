@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.6"></a>
+# [1.0.0-alpha.6](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.4...v1.0.0-alpha.6) (2018-05-09)
+
+
+### Bug Fixes
+
+* Change filenames and add exports for API ([a157adc](https://github.com/dworthen/middle-out/commit/a157adc))
+* Change license from ISC to MIT ([36d0fff](https://github.com/dworthen/middle-out/commit/36d0fff))
+
+
+
 <a name="1.0.0-alpha.5"></a>
 # [1.0.0-alpha.5](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.3...v1.0.0-alpha.5) (2018-05-09)
 
