@@ -1,7 +1,7 @@
-import { registerMetaData, getMetaData } from '../src/Reflect';
+import { registerMetaData, getMetaData } from '../src/Reflection';
 
 
-describe('Reflect API', () => {
+describe('Reflection API', () => {
 
     describe("registerMetaData", () => {
 

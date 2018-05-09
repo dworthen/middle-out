@@ -1,6 +1,6 @@
-import { registerValidator, getValidators, validate, errorTemplate } from '../src/Validator';
+import { registerValidator, getValidators, validate, errorTemplate } from '../src/Validation';
 
-describe('Validator Registration API', () => {
+describe('Validation Registration API', () => {
     
     describe('registerValidator', () => {
         

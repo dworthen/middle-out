@@ -1,4 +1,4 @@
-import { getMetaData } from './Reflect';
+import { getMetaData } from './Reflection';
 
 const MiddleOutValidatorSymbol = Symbol("MiddleOutValidator");
 

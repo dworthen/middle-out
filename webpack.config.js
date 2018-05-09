@@ -1,8 +1,10 @@
 const path = require('path');
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
 
   return {
+    mode: argv && argv.mode ? argv.mode : "development",
+    devtool: "source-map",
     entry: {
       'index': path.resolve(__dirname, './dist/esm/index.js')
     },
