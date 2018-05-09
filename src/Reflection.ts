@@ -1,3 +1,5 @@
+import {checkTargetAndProperty} from './Utils';
+
 const MiddleOutMetaDataSymbol = Symbol("MiddleOutMetaData");
 
 export function registerMetaData<T>(name: string): (config: T) => (target: {[key:string]: any}, property: string) => void {
@@ -11,13 +13,8 @@ export function registerMetaData<T>(name: string): (config: T) => (target: {[key
         }
 
         return (target, property) => {
-            if(target === undefined || target === null || typeof target !== 'object') {
-                throw new TypeError(`Invalid argument 'target'. Expecting object but received ${target}.`);
-            }
-
-            if(property === undefined || property === null || typeof property !== 'string') {
-                throw new TypeError(`Invalid argument 'property'. Expecting string but received ${property}.`);
-            }
+            checkTargetAndProperty(target, property);
+            
             target[MiddleOutMetaDataSymbol] = target[MiddleOutMetaDataSymbol] || {};
             target[MiddleOutMetaDataSymbol][property] = target[MiddleOutMetaDataSymbol][property] || [];
             // target[MiddleOutMetaDataSymbol][property][name] = config;
