@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.12"></a>
+# [1.0.0-alpha.12](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2018-05-10)
+
+
+### Bug Fixes
+
+* Define defaults for StringLength function ([1392b1a](https://github.com/dworthen/middle-out/commit/1392b1a))
+
+
+
 <a name="1.0.0-alpha.11"></a>
 # [1.0.0-alpha.11](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2018-05-10)
 
