@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.9"></a>
+# [1.0.0-alpha.9](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2018-05-10)
+
+
+### Bug Fixes
+
+* Add Required to public API ([e3b9433](https://github.com/dworthen/middle-out/commit/e3b9433))
+
+
+
 <a name="1.0.0-alpha.8"></a>
 # [1.0.0-alpha.8](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2018-05-09)
 
