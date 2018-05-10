@@ -15,13 +15,14 @@
     "release": "standard-version",
     "prerelease2": "npm run coverage",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "precoverage": "npm test -- --coverage"
+    "precoverage": "npm test -- --coverage",
+    "prepublish": "npm run build:umd"
   },
   "keywords": [],
   "files": [
     "dist/**/*"
   ],
-  "author": "",
+  "author": "Derek Worthen",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^22.2.3",
