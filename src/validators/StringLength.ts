@@ -10,7 +10,7 @@ registerValidator<{min?: number, max?: number}>("StringLength", (target, propert
         throw new TypeError(`StringLength expecting to work with type string but received ${typeof target[property]}.`);
     }
 
-    let {min, max} = config;
+    let {min, max} = Object.assign({min: 0, max: Infinity}, config);
 
     return target[property].length >= min && target[property].length <= max;
  });
