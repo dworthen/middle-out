@@ -48,7 +48,7 @@
     "testResultsProcessor": "jest-junit",
     "collectCoverageFrom": [
       "**/src/**/*.{js,ts,jsx,tsx}",
-      "!**/src/index.ts"
+      "!**/src/**/index.ts"
     ],
     "coverageReporters": [
       "lcov",
