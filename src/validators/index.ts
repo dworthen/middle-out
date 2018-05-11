@@ -1,2 +1,2 @@
-export { Required } from './Required';
-export { StringLength } from './StringLength';
+export { required } from './required';
+export { stringLength } from './stringLength';

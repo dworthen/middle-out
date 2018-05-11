@@ -2,7 +2,7 @@ import { registerValidator, ValidatorConfig } from '../Validation';
 import { checkTargetAndProperty } from '../Utils';
 
 
-export const StringLength: (config?: {min?: number, max?: number } & ValidatorConfig | undefined) => (target: {[key:string]: any}, property: string) => void = 
+export const stringLength: (config?: {min?: number, max?: number } & ValidatorConfig | undefined) => (target: {[key:string]: any}, property: string) => void = 
 registerValidator<{min?: number, max?: number}>("StringLength", (target, property, config = {min: 0, max: Infinity}) => { 
     checkTargetAndProperty(target, property);
 

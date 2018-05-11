@@ -1,4 +1,4 @@
-import { Required } from '../../src/validators/Required';
+import { required } from '../../src/validators/required';
 import { getValidators } from '../../src/Validation';
 
 
@@ -9,9 +9,9 @@ describe('Required validator', () => {
             name: "Derek",
             age: null
         };
-        Required()(obj, "name");
-        Required()(obj, "lastName");
-        Required()(obj, "age");
+        required()(obj, "name");
+        required()(obj, "lastName");
+        required()(obj, "age");
 
         const name = getValidators(obj, "name", "Required");
         const lastName = getValidators(obj, "lastName", "Required");
