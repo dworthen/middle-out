@@ -6,6 +6,10 @@ export const StringLength: (config?: {min?: number, max?: number } & ValidatorCo
 registerValidator<{min?: number, max?: number}>("StringLength", (target, property, config = {min: 0, max: Infinity}) => { 
     checkTargetAndProperty(target, property);
 
+    if(target[property] === undefined || target[property] === null) {
+        return true;
+    }
+
     if(typeof target[property] !== 'string') {
         throw new TypeError(`StringLength expecting to work with type string but received ${typeof target[property]}.`);
     }
