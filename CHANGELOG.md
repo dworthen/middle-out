@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.13"></a>
+# [1.0.0-alpha.13](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2018-05-11)
+
+
+### Bug Fixes
+
+* Use lower camelcase for function names. ([9820790](https://github.com/dworthen/middle-out/commit/9820790))
+* validation is optional except for Required ([abd4dc2](https://github.com/dworthen/middle-out/commit/abd4dc2))
+
+
+### BREAKING CHANGES
+
+* - Use lower camelcase for function names
+CHANGE:
+- Required to required
+- StringLength to stringLength
+
+
+
 <a name="1.0.0-alpha.12"></a>
 # [1.0.0-alpha.12](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2018-05-10)
 
