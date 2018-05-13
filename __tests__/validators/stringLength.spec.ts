@@ -35,5 +35,12 @@ describe('StringLength Validator', () => {
         validator = getValidators(obj, "name", "StringLength");
         expect(validator()).toBeTruthy();
 
+        obj = {
+            name: null
+        };
+        stringLength({min: 3, max: 10})(obj, "name");
+        validator = getValidators(obj, "name", "StringLength");
+        expect(validator()).toBeTruthy();
+
     });
 });
