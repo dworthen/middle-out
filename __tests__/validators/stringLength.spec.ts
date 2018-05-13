@@ -10,6 +10,24 @@ describe('StringLength Validator', () => {
             let validator = getValidators(obj, "name", "StringLength");
             validator();
         }).toThrow();
+
+        expect(() => {
+            let obj = {name: "Cool"};
+            stringLength({
+                min: "a"
+            })(obj, "name");
+            let validator = getValidators(obj, "name", "StringLength");
+            validator();
+        }).toThrow();
+
+        expect(() => {
+            let obj = {name: "Cool"};
+            stringLength({
+                max: "a"
+            })(obj, "name");
+            let validator = getValidators(obj, "name", "StringLength");
+            validator();
+        }).toThrow();
     });
 
     test('should enforce string length', () => {
