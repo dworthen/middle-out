@@ -1,5 +1,5 @@
 import { checkTargetAndProperty } from '../Utils';
-import { registerValidator, ValidatorConfig, getValidators } from '../Validation';
+import { registerValidator, ValidatorConfig } from '../Validation';
 
 export const typeOf:
     (config?: { dataType: string } & ValidatorConfig | undefined) =>
