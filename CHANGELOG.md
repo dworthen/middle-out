@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.16"></a>
+# [1.0.0-alpha.16](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2018-05-13)
+
+
+### Features
+
+* Add range validator ([c749e5e](https://github.com/dworthen/middle-out/commit/c749e5e))
+
+
+
 <a name="1.0.0-alpha.15"></a>
 # [1.0.0-alpha.15](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2018-05-13)
 
