@@ -7,16 +7,17 @@
   "types": "dist/typings/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build:debugjest": "tsc ./__tests__/Reflect.spec.ts --target ES5 --lib es2015,dom --module commonjs --outDir ./dist/commonjs/ --declaration false --sourceMap true --strict true --experimentalDecorators true --emitDecoratorMetadata true",
+    "clean": "rimraf ./dist/*",
+    "build:debugjest": "tsc ./__tests__/Reflection.spec.ts ./__tests__/validators/typeOf.spec.ts --target ES5 --lib es2015,dom --module commonjs --outDir ./dist/commonjs/ --declaration false --sourceMap true --strict true --experimentalDecorators true --emitDecoratorMetadata true",
     "build:commonjs": "tsc",
     "build:esm": "tsc --target ES2015 --module ES2015 --outDir ./dist/esm/ --declaration true --declarationDir ./dist/typings/",
     "build:umd": "webpack",
-    "prebuild:umd": "npm run build:esm",
+    "prebuild:umd": "npm run clean && npm run build:esm",
     "release": "standard-version",
     "prerelease2": "npm run coverage",
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "precoverage": "npm test -- --coverage",
-    "prepublish": "npm run build:umd"
+    "prepublishOnly": "npm run build:umd"
   },
   "keywords": [],
   "files": [
@@ -31,8 +32,10 @@
     "coveralls": "^3.0.0",
     "jest": "^22.4.3",
     "jest-junit": "^3.6.0",
+    "rimraf": "^2.6.2",
     "standard-version": "^4.3.0",
     "ts-jest": "^22.4.4",
+    "ts-node": "^6.0.3",
     "typescript": "^2.7.2",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.12"
