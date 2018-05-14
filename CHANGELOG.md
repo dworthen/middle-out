@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-alpha.17"></a>
+# [1.0.0-alpha.17](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.13...v1.0.0-alpha.17) (2018-05-14)
+
+
+### Bug Fixes
+
+* Expose range and instanceOf validators ([e13a95e](https://github.com/dworthen/middle-out/commit/e13a95e))
+
+
+### Features
+
+* Add instanceOf validator ([0add39f](https://github.com/dworthen/middle-out/commit/0add39f))
+* Add range validator ([c749e5e](https://github.com/dworthen/middle-out/commit/c749e5e))
+* Add typeOf validator ([83b56e8](https://github.com/dworthen/middle-out/commit/83b56e8))
+
+
+
 <a name="1.0.0-alpha.16"></a>
 # [1.0.0-alpha.16](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2018-05-13)
 
