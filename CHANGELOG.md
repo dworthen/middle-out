@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.2"></a>
+# [1.0.0-beta.2](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2018-05-16)
+
+
+### Bug Fixes
+
+* improve test coverage for credit card check ([bbf2c8d](https://github.com/dworthen/middle-out/commit/bbf2c8d))
+
+
+
 <a name="1.0.0-beta.1"></a>
 # [1.0.0-beta.1](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.0...v1.0.0-beta.1) (2018-05-16)
 
