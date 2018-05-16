@@ -6,5 +6,6 @@ export {
     stringLength, 
     typeOf, 
     instanceOf,
-    range 
+    range,
+    creditCard 
 } from './validators/index';
