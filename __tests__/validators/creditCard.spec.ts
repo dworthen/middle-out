@@ -42,5 +42,12 @@ describe('creditCard Validator', () => {
         validator = getValidators(obj, "card", "creditCard");
         expect(validator()).toBeFalsy();
 
+        obj = {
+            card: null
+        };
+        creditCard()(obj, "card");
+        validator = getValidators(obj, "card", "creditCard");
+        expect(validator()).toBeTruthy();
+
     });
 });
