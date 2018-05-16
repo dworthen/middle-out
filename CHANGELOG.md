@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.1"></a>
+# [1.0.0-beta.1](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.0...v1.0.0-beta.1) (2018-05-16)
+
+
+### Bug Fixes
+
+* Add [@types](https://github.com/types)/validator for build process ([93f58dc](https://github.com/dworthen/middle-out/commit/93f58dc))
+
+
+
 <a name="1.0.0-beta.0"></a>
 # [1.0.0-beta.0](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.16...v1.0.0-beta.0) (2018-05-16)
 
