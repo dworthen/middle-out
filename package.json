@@ -27,6 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^22.2.3",
+    "@types/validator": "^9.4.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "coveralls": "^3.0.0",
