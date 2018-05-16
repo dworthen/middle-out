@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.0"></a>
+# [1.0.0-beta.0](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.16...v1.0.0-beta.0) (2018-05-16)
+
+
+### Bug Fixes
+
+* Expose range and instanceOf validators ([e13a95e](https://github.com/dworthen/middle-out/commit/e13a95e))
+
+
+### Features
+
+* Add credit card validator ([301547b](https://github.com/dworthen/middle-out/commit/301547b))
+
+
+
 <a name="1.0.0-alpha.17"></a>
 # [1.0.0-alpha.17](https://github.com/dworthen/middle-out/compare/v1.0.0-alpha.13...v1.0.0-alpha.17) (2018-05-14)
 
