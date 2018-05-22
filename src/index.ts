@@ -8,5 +8,6 @@ export {
     instanceOf,
     range,
     creditCard,
-    emailAddress 
+    emailAddress,
+    mobilePhone
 } from './validators/index';
