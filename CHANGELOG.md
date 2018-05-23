@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.6"></a>
+# [1.0.0-beta.6](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2018-05-23)
+
+
+### Features
+
+* Add regularExpression validator ([2f8585e](https://github.com/dworthen/middle-out/commit/2f8585e))
+
+
+
 <a name="1.0.0-beta.5"></a>
 # [1.0.0-beta.5](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2018-05-22)
 
