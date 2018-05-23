@@ -9,5 +9,7 @@ export {
     range,
     creditCard,
     emailAddress,
-    mobilePhone
+    mobilePhone,
+    compare,
+    regularExpression
 } from './validators/index';

@@ -5,4 +5,6 @@ export { instanceOf } from './instanceOf';
 export { range } from './range';
 export { creditCard } from './creditCard';
 export { emailAddress } from './emailAddress';
-export { mobilePhone } from './mobilePhone'
+export { mobilePhone } from './mobilePhone';
+export { compare } from './compare';
+export { regularExpression } from './regularExpression';
