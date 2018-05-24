@@ -4,3 +4,4 @@ dist
 coverage
 .coveralls.yml
 docs
+examples/**/package-lock.json
