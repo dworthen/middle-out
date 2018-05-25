@@ -6,7 +6,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/typings/index.d.ts",
   "scripts": {
-    "test": "jest",
+    "test": "jest __tests__/.*\\.ts",
     "clean": "rimraf ./dist/*",
     "build:debugjest": "tsc -p tsconfig.debugjest.json",
     "build:commonjs": "tsc -p tsconfig.app.json",
@@ -54,7 +54,8 @@
     "testResultsProcessor": "jest-junit",
     "collectCoverageFrom": [
       "**/src/**/*.{js,ts,jsx,tsx}",
-      "!**/src/**/index.ts"
+      "!**/src/**/index.ts",
+      "!dist/**/*"
     ],
     "coverageReporters": [
       "lcov",
