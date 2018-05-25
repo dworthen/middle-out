@@ -48,18 +48,50 @@ export function registerValidator<T extends {[key:string]: any} = {}>(name: stri
         return (target, property) => {
             checkTargetAndProperty(target, property);
 
-            let fn: Validator = () => {
-                return validator(target, property, config);
-            };
-            if (config) {
-                fn.config = config;
-            }
+            let temp = Object.assign({
+                configurable: true,
+                enumerable: true,
+                get: function() {
+                    return {};
+                }
+            }, Object.getOwnPropertyDescriptor(target, MiddleOutValidatorSymbol) || {});
 
-            target[MiddleOutValidatorSymbol] = target[MiddleOutValidatorSymbol] || {};
-            target[MiddleOutValidatorSymbol][property] =
-                (target[MiddleOutValidatorSymbol][property] || []).concat([
-                    [name, fn]
-                ]);
+            Object.defineProperty(target, MiddleOutValidatorSymbol, {
+                configurable: true,
+                enumerable: true,
+                get: function(this: any) {
+                    let self = this;
+
+                    let fn: Validator = () => {
+                        return validator(self, property, config);
+                    };
+                    if (config) {
+                        fn.config = config;
+                    }
+
+                    let obj = temp.get.call(self);
+
+                    obj[property] = (obj[property] || []).concat([
+                        [name, fn]
+                    ]);
+
+                    return obj;
+                }
+            });
+
+            // let fn: Validator = () => {
+            //     return validator(target, property, config);
+            // };
+            // if (config) {
+            //     fn.config = config;
+            // }
+
+
+            // target[MiddleOutValidatorSymbol] = target[MiddleOutValidatorSymbol] || {};
+            // target[MiddleOutValidatorSymbol][property] =
+            //     (target[MiddleOutValidatorSymbol][property] || []).concat([
+            //         [name, fn]
+            //     ]);
         }
     }
 };

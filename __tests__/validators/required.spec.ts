@@ -13,9 +13,9 @@ describe('Required validator', () => {
         required()(obj, "lastName");
         required()(obj, "age");
 
-        const name = getValidators(obj, "name", "required");
-        const lastName = getValidators(obj, "lastName", "required");
-        const age = getValidators(obj, "age", "required");
+        const name = getValidators(obj, "name", "required") as Function;
+        const lastName = getValidators(obj, "lastName", "required") as Function;
+        const age = getValidators(obj, "age", "required") as Function;
 
         expect(name()).toBeTruthy();
         expect(lastName()).toBeFalsy();
@@ -28,18 +28,12 @@ describe('Required validator', () => {
             @required()
             public name: string = "Derek";
             @required()
-            public age?: number = null;
+            public age?: number = undefined;
         }
 
         let person = new Person();
-        const name = getValidators(person, "name", "required");
-        const age = getValidators(person, "age", "required");
-
-        let symbols = Object.getOwnPropertySymbols(Object.getPrototypeOf(person));
-
-        expect(symbols.length).toBe(1);
-
-        let metaData = Object.getPrototypeOf(person)[symbols[0]];
+        const name = getValidators(person, "name", "required") as Function;
+        const age = getValidators(person, "age", "required") as Function;
 
         expect(name()).toBeTruthy();
         expect(age()).toBeFalsy();
