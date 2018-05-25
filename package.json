@@ -21,7 +21,9 @@
   },
   "keywords": [],
   "files": [
-    "dist/**/*"
+    "dist/esm/**/*",
+    "dist/typings/**/*",
+    "dist/umd/**/*"
   ],
   "author": "Derek Worthen",
   "license": "MIT",
