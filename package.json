@@ -8,9 +8,9 @@
   "scripts": {
     "test": "jest",
     "clean": "rimraf ./dist/*",
-    "build:debugjest": "tsc ./__tests__/Reflection.spec.ts ./__tests__/validators/typeOf.spec.ts ./__tests__/validators/required.spec.ts --target ES5 --lib es2015,dom --module commonjs --outDir ./dist/commonjs/ --declaration false --sourceMap true --strict true --experimentalDecorators true --emitDecoratorMetadata true",
-    "build:commonjs": "tsc",
-    "build:esm": "tsc --target ES2015 --module ES2015 --outDir ./dist/esm/ --declaration true --declarationDir ./dist/typings/",
+    "build:debugjest": "tsc -p tsconfig.debugjest.json",
+    "build:commonjs": "tsc -p tsconfig.app.json",
+    "build:esm": "tsc -p tsconfig.app.json --target ES2015 --module ES2015 --outDir ./dist/esm/ --declaration true --declarationDir ./dist/typings/",
     "build:umd": "webpack",
     "prebuild:umd": "npm run clean && npm run build:esm",
     "release": "standard-version",

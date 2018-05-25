@@ -21,6 +21,7 @@
             "name": "debug jest",
             "request": "launch",
             "args": [
+                "dist/commonjs/.*${fileBasenameNoExtension}.js",
                 "--runInBand"
             ],
             "cwd": "${workspaceFolder}",
