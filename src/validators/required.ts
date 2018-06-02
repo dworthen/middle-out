@@ -1,3 +1,7 @@
+/**
+ * @module Validators
+ */
+
 import { registerValidator, ValidatorConfig } from '../Validation';
 import { checkTargetAndProperty } from '../Utils';
 

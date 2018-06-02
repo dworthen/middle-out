@@ -1,4 +1,8 @@
-import { checkTargetAndProperty } from '../Utils';
+/**
+ * @module Validators
+ */
+
+ import { checkTargetAndProperty } from '../Utils';
 import { registerValidator, ValidatorConfig } from '../Validation';
 
 export const range:

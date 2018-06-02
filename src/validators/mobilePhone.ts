@@ -1,3 +1,7 @@
+/**
+ * @module Validators
+ */
+
 import { checkTargetAndProperty } from '../Utils';
 import { registerValidator, ValidatorConfig } from '../Validation';
 import isMobilePhone from 'validator/lib/isMobilePhone';
