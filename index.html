@@ -1,0 +1,320 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Middle Out</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Middle Out</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> Middle Out</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p>Middle Out</p>
+				<p><img src="https://img.shields.io/vso/build/derekworthen/28f9ce90-1a76-4c9b-b520-b4a0dd24477d/4.svg" alt="Visual Studio Team services">
+					<img src="https://img.shields.io/coveralls/github/dworthen/middle-out.svg" alt="Coveralls github">
+				<img src="https://img.shields.io/npm/v/middle-out.svg" alt="npm"></p>
+				<p>Agnostic data validation. </p>
+				<h1 id="data-validation-with-es-classes-and-decorators">Data Validation with ES Classes and Decorators</h1>
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> MO <span class="hljs-keyword">from</span> <span class="hljs-string">'middle-out'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+
+    @MO.required()
+    @MO.typeOf({<span class="hljs-attr">dataType</span>: <span class="hljs-string">'string'</span>})
+    @MO.stringLength({<span class="hljs-attr">min</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">20</span>})
+    name = <span class="hljs-string">"Derek"</span>;
+
+    @MO.mobilePhone()
+    phone = <span class="hljs-number">5553336543</span>;
+
+    @MO.emailAddress()
+    email = <span class="hljs-string">"something@awesome.com"</span>;
+
+    @MO.range({<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">150</span>})
+    age = <span class="hljs-number">55</span>;
+
+    @MO.compare({
+        <span class="hljs-attr">comparingProperty</span>: <span class="hljs-string">'age'</span>,
+        <span class="hljs-attr">predicate</span>: <span class="hljs-function">(<span class="hljs-params">target, parents, age</span>) =&gt;</span> (target[parents] &gt; target[age])
+    })
+    parentsAge = <span class="hljs-number">78</span>;
+
+    @MO.creditCard()
+    creditCard = <span class="hljs-string">"4444333322221111"</span>;    
+}
+
+<span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> Person();
+
+<span class="hljs-keyword">let</span> [isValid, errors] = MO.validate(person); 
+<span class="hljs-comment">// true, {}</span>
+
+person.age = <span class="hljs-number">-10</span>;
+
+[isValid, errors] = MO.validate(person);
+<span class="hljs-comment">// false, {age: {range: ...}}</span>
+</code></pre>
+				<h1 id="data-validation-with-es5-plain-object">Data Validation with ES5/Plain Object</h1>
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> obj = {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Derek"</span>,
+    <span class="hljs-attr">age</span>: <span class="hljs-number">55</span>
+};
+
+MO.required()(obj, <span class="hljs-string">"name"</span>);
+MO.emailAddress()(obj, <span class="hljs-string">"name"</span>);
+MO.range({<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">150</span>})(obj, <span class="hljs-string">"age"</span>);
+
+<span class="hljs-keyword">var</span> results = MO.validate(obj);
+</code></pre>
+				<h1 id="installation">Installation</h1>
+				<pre><code class="lang-shell">npm install middle-out
+</code></pre>
+				<h2 id="usage">Usage</h2>
+				<h3 id="nodejs-commmonjs">NodeJS/CommmonJS</h3>
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">var</span> MO = <span class="hljs-built_in">require</span>(<span class="hljs-string">'middle-out'</span>);
+</code></pre>
+				<h3 id="es-modules">ES Modules</h3>
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">import</span> { required } <span class="hljs-keyword">from</span> <span class="hljs-string">'middle-out/dist/esm/required'</span>;
+</code></pre>
+				<blockquote>
+					<p><strong>Note on build tools.</strong> Webpack and rollup use ES modules by default so it is fine to write <code>import { required } from &#39;middle-out&#39;;</code>. </p>
+				</blockquote>
+				<h1 id="custom-validators">Custom Validators</h1>
+				<pre><code class="lang-JavaScript"><span class="hljs-comment">// canDrive.js</span>
+<span class="hljs-keyword">const</span> canDrive = MO.registerValidator(<span class="hljs-string">"canDrive"</span>, (target, property, config) =&gt; {
+    <span class="hljs-keyword">return</span> target[property] &gt;= config.drivingAge;
+});
+
+<span class="hljs-comment">// someOtherFile.js</span>
+<span class="hljs-keyword">import</span> { canDrive } <span class="hljs-keyword">from</span> <span class="hljs-string">'./canDrive'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+    @canDrive({<span class="hljs-attr">drivingAge</span>: <span class="hljs-number">16</span>})
+    age = <span class="hljs-number">15</span>;
+}
+</code></pre>
+				<h2 id="default-config-object">Default Config Object</h2>
+				<p><code>registerValidator</code> returns a decorator factory, <code>(config?) =&gt; ((target, property) =&gt; void)</code>, a function that accepts an optional config object and returns a function suitable for decorating an object property. Config is optional, provide a default object and validate.</p>
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> canDrive = MO.registerValidator(<span class="hljs-string">"canDrive"</span>, (target, property, config) =&gt; {
+
+    <span class="hljs-comment">// set default properties for config object</span>
+    config = <span class="hljs-built_in">Object</span>.assign({
+        <span class="hljs-attr">permitAge</span>: <span class="hljs-number">15</span>,
+        <span class="hljs-attr">drivingAge</span>: <span class="hljs-number">16</span>
+    }, config || {} <span class="hljs-comment">/* config is optional so it may be undefined */</span>);
+
+    <span class="hljs-comment">// Validate config. User may have passed in {drivingAge: "Hello"}</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> config.drivingAge !== <span class="hljs-string">"number"</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">`Invalid parameter config.drivingAge. Expecting number but received <span class="hljs-subst">${<span class="hljs-keyword">typeof</span> config.drivingAge}</span>`</span>);
+    }
+
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> config.permitAge !== <span class="hljs-string">"number"</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">`Invalid parameter config.permitAge. Expecting number but received <span class="hljs-subst">${<span class="hljs-keyword">typeof</span> config.permitAge}</span>`</span>);
+    }
+
+    <span class="hljs-keyword">return</span> target[property] &gt;= config.drivingAge;
+});
+</code></pre>
+				<h2 id="target-and-property">Target and Property</h2>
+				<p>Validators can be called on plain objects, i.e., <code>required()(obj, &#39;age&#39;);</code>. Validators need to ensure target and property exist.</p>
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> canDrive = MO.registerValidator(<span class="hljs-string">"canDrive"</span>, (target, property, config) =&gt; {
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> target !== <span class="hljs-string">'object'</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">`Invalid argument 'target'. Expecting object but received <span class="hljs-subst">${<span class="hljs-keyword">typeof</span> target}</span>.`</span>);
+    }
+
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> property !== <span class="hljs-string">'string'</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">`Invalid argument property. Expecting string but received <span class="hljs-subst">${<span class="hljs-keyword">typeof</span> property}</span>.`</span>);
+    }
+    <span class="hljs-comment">// or use the utility function MO.checkTargetAndProperty(target, property);</span>
+
+    <span class="hljs-comment">// Validate the type being validated</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> target[property] !== <span class="hljs-string">'number'</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">"candDrive works with numbers only!!"</span>);
+    }
+    ...
+}
+</code></pre>
+				<h2 id="compose-validators">Compose Validators</h2>
+				<p>Validators should do one thing. </p>
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> canDrive = MO.registerValidator(<span class="hljs-string">"canDrive"</span>, (target, property, config) =&gt; {
+    <span class="hljs-comment">// check target and property exist</span>
+    MO.checkTargetAndProperty(target, property);
+
+    <span class="hljs-comment">// return true if there is nothing to validate</span>
+    <span class="hljs-keyword">if</span>(target[property] === <span class="hljs-literal">undefined</span> || target[property] === <span class="hljs-literal">null</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">//use @required validator to enforce a property exists</span>
+    }
+
+    <span class="hljs-comment">// Validate the type being validated</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> target[property] !== <span class="hljs-string">'number'</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">"candDrive works with numbers only!!"</span>);
+    }
+
+    <span class="hljs-comment">// set default properties for config object</span>
+    config = <span class="hljs-built_in">Object</span>.assign({
+        <span class="hljs-attr">permitAge</span>: <span class="hljs-number">15</span>,
+        <span class="hljs-attr">drivingAge</span>: <span class="hljs-number">16</span>
+    }, config || {} <span class="hljs-comment">/* config is optional so it may be undefined */</span>);
+
+    <span class="hljs-comment">// Validate config. User may have passed in {drivingAge: "Hello"}</span>
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> config.drivingAge !== <span class="hljs-string">"number"</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">`Invalid parameter config.drivingAge. Expecting number but received <span class="hljs-subst">${<span class="hljs-keyword">typeof</span> config.drivingAge}</span>`</span>);
+    }
+
+    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> config.permitAge !== <span class="hljs-string">"number"</span>) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">`Invalid parameter config.permitAge. Expecting number but received <span class="hljs-subst">${<span class="hljs-keyword">typeof</span> config.permitAge}</span>`</span>);
+    }
+
+    <span class="hljs-keyword">return</span> target[property] &gt;= config.drivingAge;
+});
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_reflection_.html">"<wbr>Reflection"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_utils_.html">"<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_validation_.html">"<wbr>Validation"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/validators.html">Validators</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
