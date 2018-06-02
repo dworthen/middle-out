@@ -53,7 +53,7 @@ person.age = -10;
 # Data Validation with ES5/Plain Object
 
 ```JavaScript
-let obj = {
+var obj = {
     name: "Derek",
     age: 55
 };
@@ -86,6 +86,22 @@ import { required } from 'middle-out/dist/esm/required';
 ```
 
 > **Note on build tools.** Webpack and rollup use ES modules by default so it is fine to write `import { required } from 'middle-out';`. 
+
+### Script Tag/AMD
+
+```html
+<script src="https://unpkg.com/middle-out@1.0.0-beta.12/dist/umd/index.js"></script>
+<script>
+    var obj = {
+        name: "Derek",
+        age: 55
+    };
+
+    // library exposed as MiddleOut global
+    MiddleOut.required()(obj, "name");
+    var results = MiddleOut.validate(obj);
+</script>
+```
 
 # Custom Validators
 
