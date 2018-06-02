@@ -96,7 +96,7 @@
 					<div class="tsd-signature tsd-kind-icon">compare<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{predicate: (target: { [key: string]: any }, a: string, b: string) &#x3D;&gt; boolean,comparingProperty: string}&gt;(&quot;compare&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}let {predicate, comparingProperty} &#x3D; config || {predicate: undefined,comparingProperty: undefined};if(typeof predicate !&#x3D;&#x3D; &#x27;function&#x27;) {throw new TypeError(&#x60;Invalid argument config.predicate. Expecting (a, b) &#x3D;&gt; boolean but received ${typeof predicate}&#x60;);}if(typeof comparingProperty !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;Invalid argument config.comparingProperty. Expecting string but received ${typeof comparingProperty}&#x60;);}return predicate(target, property, comparingProperty);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/compare.ts#L8">validators/compare.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/compare.ts#L8">validators/compare.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -156,7 +156,7 @@
 					<div class="tsd-signature tsd-kind-icon">credit<wbr>Card<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator(&quot;creditCard&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;creditCard expecting to work with type string but received ${typeof target[property]}.&#x60;);}return isCreditCard(target[property]);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/creditCard.ts#L9">validators/creditCard.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/creditCard.ts#L9">validators/creditCard.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -216,7 +216,7 @@
 					<div class="tsd-signature tsd-kind-icon">email<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{allow_display_name?: boolean,require_display_name?: boolean,allow_utf8_local_part?: boolean,require_tld?: boolean}&gt;(&quot;emailAddress&quot;, (target, property, config &#x3D; {}) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;emailAddress expecting to work with type string but received ${typeof target[property]}.&#x60;);}config &#x3D; Object.assign({allow_display_name: false,require_display_name: false,allow_utf8_local_part: true,require_tld: true}, config);let { allow_display_name, require_display_name, allow_utf8_local_part, require_tld } &#x3D; configif( typeof allow_display_name !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.allow_display_name&#x27;. Expecting boolean but recieved ${allow_display_name}&#x60;);}if( typeof require_display_name !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.require_display_name&#x27;. Expecting boolean but recieved ${require_display_name}&#x60;);}if( typeof allow_utf8_local_part !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.allow_utf8_local_part&#x27;. Expecting boolean but recieved ${allow_utf8_local_part}&#x60;);}if( typeof require_tld !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.require_tld&#x27;. Expecting boolean but recieved ${require_tld}&#x60;);}return isEmail(target[property], config);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/emailAddress.ts#L9">validators/emailAddress.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/emailAddress.ts#L9">validators/emailAddress.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -273,7 +273,7 @@
 					<div class="tsd-signature tsd-kind-icon">instance<wbr>Of<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ constor: any }&gt;(&quot;instanceOf&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (config &#x3D;&#x3D;&#x3D; undefined || config &#x3D;&#x3D;&#x3D; null || config.constor &#x3D;&#x3D;&#x3D; undefined || config.constor &#x3D;&#x3D;&#x3D; null) {throw new TypeError(&#x60;Invalid argument &#x27;config&#x27;. Expecting {constor: any} but received ${config}.&#x60;);}return target[property] instanceof config.constor;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/instanceOf.ts#L8">validators/instanceOf.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/instanceOf.ts#L8">validators/instanceOf.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -333,7 +333,7 @@
 					<div class="tsd-signature tsd-kind-icon">mobile<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{locale?: string,strictMode?: boolean}&gt;(&quot;mobilePhone&quot;, (target, property, config &#x3D; {}) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof value !&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; typeof value !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;mobilePhone expecting to work with type string|number but received ${typeof value}.&#x60;);}if(typeof value &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {value &#x3D; &#x27;&#x27; + value;}config &#x3D; Object.assign({locale: &#x27;en-US&#x27;,strictMode: false}, config);let {locale, strictMode} &#x3D; config;if(typeof locale !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;Invalid argument config.locale. Expecting string but received ${typeof locale}&#x60;);}if(typeof strictMode !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument config.strictMode. Expecting boolean but received ${typeof strictMode}&#x60;);}return isMobilePhone(value, locale as any, config);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/mobilePhone.ts#L9">validators/mobilePhone.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/mobilePhone.ts#L9">validators/mobilePhone.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -393,7 +393,7 @@
 					<div class="tsd-signature tsd-kind-icon">range<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ min?: number, max?: number }&gt;(&quot;range&quot;, (target, property, config &#x3D; { min: Number.NEGATIVE_INFINITY, max: Infinity }) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;range expecting to work with type number but received ${typeof target[property]}.&#x60;);}let { min, max } &#x3D; Object.assign({ min: Number.NEGATIVE_INFINITY, max: Infinity }, config);if( typeof min !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.min&#x27;. Expecting number but recieved ${min}&#x60;);}if( typeof max !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.max&#x27;. Expecting number but recieved ${max}&#x60;);}return target[property] &gt;&#x3D; min &amp;&amp; target[property] &lt;&#x3D; max;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/range.ts#L8">validators/range.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/range.ts#L8">validators/range.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -450,7 +450,7 @@
 					<div class="tsd-signature tsd-kind-icon">regular<wbr>Expression<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{regex: RegExp}&gt;(&quot;regularExpression&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof value !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;regularExpression expecting to work with type string but received ${typeof value}.&#x60;);}let {regex} &#x3D; config || { regex: undefined };if(!(regex instanceof RegExp)) {throw new TypeError(&#x60;Invalid argument config.regex. Expecting string but received ${typeof regex}&#x60;);}return regex.test(value);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/regularExpression.ts#L8">validators/regularExpression.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/regularExpression.ts#L8">validators/regularExpression.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -510,7 +510,7 @@
 					<div class="tsd-signature tsd-kind-icon">required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator(&quot;required&quot;, (target, property) &#x3D;&gt; {checkTargetAndProperty(target, property);return target[property] !&#x3D;&#x3D; null &amp;&amp; target[property] !&#x3D;&#x3D; undefined;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/required.ts#L8">validators/required.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/required.ts#L8">validators/required.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -567,7 +567,7 @@
 					<div class="tsd-signature tsd-kind-icon">string<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ min?: number, max?: number }&gt;(&quot;StringLength&quot;, (target, property, config &#x3D; { min: 0, max: Infinity }) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;StringLength expecting to work with type string but received ${typeof target[property]}.&#x60;);}let { min, max } &#x3D; Object.assign({ min: 0, max: Infinity }, config);if( typeof min !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.min&#x27;. Expecting number but recieved ${min}&#x60;);}if( typeof max !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.max&#x27;. Expecting number but recieved ${max}&#x60;);}return target[property].length &gt;&#x3D; min &amp;&amp; target[property].length &lt;&#x3D; max;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/stringLength.ts#L9">validators/stringLength.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/stringLength.ts#L9">validators/stringLength.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -624,7 +624,7 @@
 					<div class="tsd-signature tsd-kind-icon">type<wbr>Of<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ dataType: string }&gt;(&quot;typeOf&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (config &#x3D;&#x3D;&#x3D; undefined || config &#x3D;&#x3D;&#x3D; null || config.dataType &#x3D;&#x3D;&#x3D; undefined || config.dataType &#x3D;&#x3D;&#x3D; null || typeof config.dataType !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config&#x27;. Expecting {dataType: string} but received ${config}.&#x60;);}return typeof target[property] &#x3D;&#x3D;&#x3D; config.dataType;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/1c6f042/src/validators/typeOf.ts#L8">validators/typeOf.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/typeOf.ts#L8">validators/typeOf.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">

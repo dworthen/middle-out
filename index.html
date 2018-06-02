@@ -64,11 +64,12 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<p>Middle Out</p>
+				<h1 id="middle-out">Middle Out</h1>
 				<p><img src="https://img.shields.io/vso/build/derekworthen/28f9ce90-1a76-4c9b-b520-b4a0dd24477d/4.svg" alt="Visual Studio Team services">
 					<img src="https://img.shields.io/coveralls/github/dworthen/middle-out.svg" alt="Coveralls github">
 				<img src="https://img.shields.io/npm/v/middle-out.svg" alt="npm"></p>
 				<p>Agnostic data validation. </p>
+				<p><a href="http://dworthen.github.io/middle-out/">API</a></p>
 				<h1 id="data-validation-with-es-classes-and-decorators">Data Validation with ES Classes and Decorators</h1>
 				<pre><code class="lang-JavaScript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> MO <span class="hljs-keyword">from</span> <span class="hljs-string">'middle-out'</span>;
 
@@ -109,7 +110,7 @@ person.age = <span class="hljs-number">-10</span>;
 <span class="hljs-comment">// false, {age: {range: ...}}</span>
 </code></pre>
 				<h1 id="data-validation-with-es5-plain-object">Data Validation with ES5/Plain Object</h1>
-				<pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> obj = {
+				<pre><code class="lang-JavaScript"><span class="hljs-keyword">var</span> obj = {
     <span class="hljs-attr">name</span>: <span class="hljs-string">"Derek"</span>,
     <span class="hljs-attr">age</span>: <span class="hljs-number">55</span>
 };
@@ -133,6 +134,19 @@ MO.range({<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>
 				<blockquote>
 					<p><strong>Note on build tools.</strong> Webpack and rollup use ES modules by default so it is fine to write <code>import { required } from &#39;middle-out&#39;;</code>. </p>
 				</blockquote>
+				<h3 id="script-tag-amd">Script Tag/AMD</h3>
+				<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/middle-out@1.0.0-beta.12/dist/umd/index.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">var</span> obj = {
+        name: <span class="hljs-string">"Derek"</span>,
+        age: <span class="hljs-number">55</span>
+    };
+
+    <span class="hljs-comment">// library exposed as MiddleOut global</span>
+    MiddleOut.required()(obj, <span class="hljs-string">"name"</span>);
+    <span class="hljs-keyword">var</span> results = MiddleOut.validate(obj);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
 				<h1 id="custom-validators">Custom Validators</h1>
 				<pre><code class="lang-JavaScript"><span class="hljs-comment">// canDrive.js</span>
 <span class="hljs-keyword">const</span> canDrive = MO.registerValidator(<span class="hljs-string">"canDrive"</span>, (target, property, config) =&gt; {
