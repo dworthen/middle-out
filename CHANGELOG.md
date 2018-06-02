@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.12"></a>
+# [1.0.0-beta.12](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2018-06-02)
+
+
+### Bug Fixes
+
+* Update readme ([7caec5d](https://github.com/dworthen/middle-out/commit/7caec5d))
+
+
+
 <a name="1.0.0-beta.11"></a>
 # [1.0.0-beta.11](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2018-06-02)
 
