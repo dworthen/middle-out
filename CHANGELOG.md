@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.11"></a>
+# [1.0.0-beta.11](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2018-06-02)
+
+
+### Bug Fixes
+
+* Add documentation ([f864b39](https://github.com/dworthen/middle-out/commit/f864b39))
+
+
+
 <a name="1.0.0-beta.10"></a>
 # [1.0.0-beta.10](https://github.com/dworthen/middle-out/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2018-05-25)
 
