@@ -5,13 +5,11 @@
 import { checkTargetAndProperty } from "../Utils";
 import { registerValidator, ValidatorConfig } from "../Validation";
 
-export const instanceOf: (
-  config?: { constor: any } & ValidatorConfig | undefined
-) => (
-  target: { [key: string]: any },
-  property: string,
-  config?: { constor: any } & ValidatorConfig | undefined
-) => void = registerValidator<{ constor: any }>(
+export interface instanceOfOptions extends ValidatorConfig {
+  constor: any;
+}
+
+const _instanceOf = registerValidator<instanceOfOptions>(
   "instanceOf",
   (target, property, config) => {
     checkTargetAndProperty(target, property);
@@ -34,3 +32,7 @@ export const instanceOf: (
     return target[property] instanceof config.constor;
   }
 );
+
+export function instanceOf(config?: instanceOfOptions) {
+  return _instanceOf(config);
+}

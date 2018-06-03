@@ -5,12 +5,12 @@
 import { registerValidator, ValidatorConfig } from "../Validation";
 import { checkTargetAndProperty } from "../Utils";
 
-export const stringLength: (
-  config?: { min?: number; max?: number } & ValidatorConfig | undefined
-) => (
-  target: { [key: string]: any },
-  property: string
-) => void = registerValidator<{ min?: number; max?: number }>(
+export interface stringLengthOptions extends ValidatorConfig {
+  min?: number;
+  max?: number;
+}
+
+const _stringLength = registerValidator<stringLengthOptions>(
   "StringLength",
   (target, property, config = { min: 0, max: Infinity }) => {
     checkTargetAndProperty(target, property);
@@ -44,3 +44,7 @@ export const stringLength: (
     return target[property].length >= min && target[property].length <= max;
   }
 );
+
+export function stringLength(config?: stringLengthOptions) {
+  return _stringLength(config);
+}

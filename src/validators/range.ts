@@ -5,12 +5,12 @@
 import { checkTargetAndProperty } from "../Utils";
 import { registerValidator, ValidatorConfig } from "../Validation";
 
-export const range: (
-  config?: { min?: number; max?: number } & ValidatorConfig | undefined
-) => (
-  target: { [key: string]: any },
-  property: string
-) => void = registerValidator<{ min?: number; max?: number }>(
+export interface rangeOptions extends ValidatorConfig {
+  min?: number;
+  max?: number;
+}
+
+const _range = registerValidator<rangeOptions>(
   "range",
   (
     target,
@@ -51,3 +51,7 @@ export const range: (
     return target[property] >= min && target[property] <= max;
   }
 );
+
+export function range(config?: rangeOptions) {
+  return _range(config);
+}

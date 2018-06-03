@@ -6,18 +6,12 @@ import { checkTargetAndProperty } from "../Utils";
 import { registerValidator, ValidatorConfig } from "../Validation";
 import isMobilePhone from "validator/lib/isMobilePhone";
 
-export const mobilePhone: (
-  config?:
-    | {
-        locale?: string;
-        strictMode?: boolean;
-      } & ValidatorConfig
-    | undefined
-) => (
-  target: { [key: string]: any },
-  property: string,
-  config?: { dataType: string } & ValidatorConfig | undefined
-) => void = registerValidator<{
+export interface mobilePhoneOptions extends ValidatorConfig {
+  locale?: string;
+  strictMode?: boolean;
+}
+
+const _mobilePhone = registerValidator<{
   locale?: string;
   strictMode?: boolean;
 }>("mobilePhone", (target, property, config = {}) => {
@@ -63,3 +57,7 @@ export const mobilePhone: (
 
   return isMobilePhone(value, locale as any, config);
 });
+
+export function mobilePhone(config?: mobilePhoneOptions) {
+  return _mobilePhone(config);
+}

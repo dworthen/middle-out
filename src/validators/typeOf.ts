@@ -5,13 +5,12 @@
 import { checkTargetAndProperty } from "../Utils";
 import { registerValidator, ValidatorConfig } from "../Validation";
 
-export const typeOf: (
-  config?: { dataType: string } & ValidatorConfig | undefined
-) => (
-  target: { [key: string]: any },
-  property: string,
-  config?: { dataType: string } & ValidatorConfig | undefined
-) => void = registerValidator<{ dataType: string }>(
+export interface typeOfOptions extends ValidatorConfig {
+  [key: string]: any;
+  dataType: string;
+}
+
+const _typeOf = registerValidator<typeOfOptions>(
   "typeOf",
   (target, property, config) => {
     checkTargetAndProperty(target, property);
@@ -35,3 +34,15 @@ export const typeOf: (
     return typeof target[property] === config.dataType;
   }
 );
+
+export function typeOf(config?: typeOfOptions) {
+  return _typeOf(config);
+}
+
+// export const typeOf: (
+//   config?: { dataType: string } & ValidatorConfig | undefined
+// ) => (
+//   target: { [key: string]: any },
+//   property: string,
+//   config?: { dataType: string } & ValidatorConfig | undefined
+// ) => void
