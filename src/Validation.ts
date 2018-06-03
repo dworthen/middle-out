@@ -1,172 +1,248 @@
-import { getMetaData } from './Reflection';
-import { checkTargetAndProperty } from './Utils';
+/**
+ * @module Validation
+ */
+
+import { getMetaData } from "./Reflection";
+import { checkTargetAndProperty } from "./Utils";
 
 const MiddleOutValidatorSymbol = Symbol("MiddleOutValidator");
 
 export interface ErrorMessageData {
-    [key: string]: any,
-    displayName: string,
-    property: string,
-    target: any,
-    value: any
-};
-
-export interface ValidationError {
-    [key: string]: any,
-    property: string,
-    target: any,
-    value: any,
-    message: string
-};
-
-export interface ValidatorConfig {
-    errorMessage?: string | ((obj: ErrorMessageData) => string);
-};
-
-export type PropertyValidator<T extends {[key: string]: any} = {}> = ((target: {[key: string]: any}, property: string, config?: T) => boolean);
-
-export type Validator = {
-    (): boolean,
-    config?: ValidatorConfig & {[key: string]: any}
-};
-
-export function registerValidator<T extends {[key:string]: any} = {}>(name: string, validator: PropertyValidator<T>): (config?: T & ValidatorConfig) => (target: {[key: string]: any}, property: string) => void {
-    if(name === undefined || name === null || typeof name !== 'string') {
-        throw new TypeError(`Invalid argument 'name'. Expecting string but received ${name}.`);
-    }
-
-    if(validator === undefined || validator === null || typeof validator !== 'function') {
-        throw new TypeError(`Invalid argument 'name'. Expecting function but received ${name}.`);
-    }
-
-    return (config) => {
-        if(config !== undefined && (config === null || typeof config !== 'object')) {
-            throw new TypeError(`Invalid argument 'config'. Expecting non-primitive type but received ${config}.`);
-        }
-
-        
-        return (target, property) => {
-            checkTargetAndProperty(target, property);
-
-            let temp = Object.assign({
-                configurable: true,
-                enumerable: true,
-                get: function() {
-                    return {};
-                }
-            }, Object.getOwnPropertyDescriptor(target, MiddleOutValidatorSymbol) || {});
-
-            Object.defineProperty(target, MiddleOutValidatorSymbol, {
-                configurable: true,
-                enumerable: true,
-                get: function(this: any) {
-                    let self = this;
-
-                    let fn: Validator = () => {
-                        return validator(self, property, config);
-                    };
-                    if (config) {
-                        fn.config = config;
-                    }
-
-                    let obj = temp.get.call(self);
-
-                    obj[property] = (obj[property] || []).concat([
-                        [name, fn]
-                    ]);
-
-                    return obj;
-                }
-            });
-
-            // let fn: Validator = () => {
-            //     return validator(target, property, config);
-            // };
-            // if (config) {
-            //     fn.config = config;
-            // }
-
-
-            // target[MiddleOutValidatorSymbol] = target[MiddleOutValidatorSymbol] || {};
-            // target[MiddleOutValidatorSymbol][property] =
-            //     (target[MiddleOutValidatorSymbol][property] || []).concat([
-            //         [name, fn]
-            //     ]);
-        }
-    }
-};
-
-export function getValidators(target: {[key: string]: any}): {[key: string]: any};
-export function getValidators(target: {[key: string]: any}, property: string): Array<[string, Validator]>;
-export function getValidators(target: {[key: string]: any}, property: string, name: string): (Validator) | undefined;
-export function getValidators(target: any, property?: string, name?: string): {[key: string]: any} | Array<[string, Validator ]> | (Validator) | undefined {
-    if(target === undefined || target === null || typeof target !== 'object') {
-        throw new TypeError(`Invalid argument 'target'. Expecting non-primative type but received ${target}.`);
-    }
-
-    if(property !== undefined && (property === null || typeof property !== 'string')) {
-        throw new TypeError(`Invalid argument 'property'. Expecting string but received ${property}.`);
-    }
-
-    if(name !== undefined && typeof name !== 'string') {
-        throw new TypeError(`Invalid argument 'name'. Expecting string but received ${name}.`);
-    }
-
-    let meta = target[MiddleOutValidatorSymbol] || {};
-    
-    if(property) {
-        meta = meta[property] || [];
-        if(name) {
-            let [ , value] = meta.filter((v: any[]) => ((v[0] || '') === name))[0] || [undefined, undefined];
-            return value;
-        }
-    }
-
-    return meta;
-};
-
-export function validate(target: any): [boolean, {[key: string]: {[key: string]: ValidationError }}] {
-    if(target === undefined || target === null || typeof target !== 'object') {
-        throw new TypeError(`Invalid argument 'target'. Expecting non-primative type but received ${target}.`);
-    }
-
-
-    let errors = Object.keys(target[MiddleOutValidatorSymbol] || {}).reduce((acc: {[key: string]: {[key: string]: ValidationError }}, property) => {
-        acc[property] = {};
-        let validators: Array<[string, Validator]> = getValidators(target, property).reverse();
-        for(let [name, fn] of validators) {
-            if(!fn()) {
-                let { errorMessage } = Object.assign({errorMessage: `Error. ${property} failed ${name} validation`}, fn.config || {});
-                let displayName = getMetaData(target, property, 'displayName') || property;
-                let error = typeof errorMessage === 'function'
-                    ? errorMessage({displayName, property, target, value: target[property]})
-                    : errorMessage;
-                acc[property][name] = {
-                    property,
-                    target,
-                    message: error,
-                    value: target[property]
-                };
-            }
-        }
-        if(!Object.keys(acc[property]).length) {
-            delete acc[property];
-        }
-        return acc;
-    }, {});
-    return [!Object.keys(errors).length, errors];
+  [key: string]: any;
+  displayName: string;
+  property: string;
+  target: any;
+  value: any;
 }
 
-export function errorTemplate(strings: TemplateStringsArray, ...keys: string[]): ((reason: ErrorMessageData) => string) {
-    return ((dict: ErrorMessageData) => {
-        //var dict = values[values.length - 1] || {};
-        let result = [strings[0]];
-        keys.forEach(function (key, i) {
-            let value = dict[key];
-            result.push(value, strings[i + 1]);
-        });
-        return result.join('');
+export interface ValidationError {
+  [key: string]: any;
+  property: string;
+  target: any;
+  value: any;
+  message: string;
+}
+
+export interface ValidatorConfig {
+  errorMessage?: string | ((obj: ErrorMessageData) => string);
+}
+
+export type PropertyValidator<T extends { [key: string]: any } = {}> = ((
+  target: { [key: string]: any },
+  property: string,
+  config?: T
+) => boolean);
+
+export type Validator = {
+  (): boolean;
+  config?: ValidatorConfig & { [key: string]: any };
+};
+
+export function registerValidator<T extends { [key: string]: any } = {}>(
+  name: string,
+  validator: PropertyValidator<T>
+): (
+  config?: T & ValidatorConfig
+) => (target: { [key: string]: any }, property: string) => void {
+  if (name === undefined || name === null || typeof name !== "string") {
+    throw new TypeError(
+      `Invalid argument 'name'. Expecting string but received ${name}.`
+    );
+  }
+
+  if (
+    validator === undefined ||
+    validator === null ||
+    typeof validator !== "function"
+  ) {
+    throw new TypeError(
+      `Invalid argument 'name'. Expecting function but received ${name}.`
+    );
+  }
+
+  return config => {
+    if (
+      config !== undefined &&
+      (config === null || typeof config !== "object")
+    ) {
+      throw new TypeError(
+        `Invalid argument 'config'. Expecting non-primitive type but received ${config}.`
+      );
+    }
+
+    return (target, property) => {
+      checkTargetAndProperty(target, property);
+
+      let temp = Object.assign(
+        {
+          configurable: true,
+          enumerable: true,
+          get: function() {
+            return {};
+          }
+        },
+        Object.getOwnPropertyDescriptor(target, MiddleOutValidatorSymbol) || {}
+      );
+
+      Object.defineProperty(target, MiddleOutValidatorSymbol, {
+        configurable: true,
+        enumerable: true,
+        get: function(this: any) {
+          let self = this;
+
+          let fn: Validator = () => {
+            return validator(self, property, config);
+          };
+          if (config) {
+            fn.config = config;
+          }
+
+          let obj = temp.get.call(self);
+
+          obj[property] = (obj[property] || []).concat([[name, fn]]);
+
+          return obj;
+        }
+      });
+
+      // let fn: Validator = () => {
+      //     return validator(target, property, config);
+      // };
+      // if (config) {
+      //     fn.config = config;
+      // }
+
+      // target[MiddleOutValidatorSymbol] = target[MiddleOutValidatorSymbol] || {};
+      // target[MiddleOutValidatorSymbol][property] =
+      //     (target[MiddleOutValidatorSymbol][property] || []).concat([
+      //         [name, fn]
+      //     ]);
+    };
+  };
+}
+
+export function getValidators(target: {
+  [key: string]: any;
+}): { [key: string]: any };
+export function getValidators(
+  target: { [key: string]: any },
+  property: string
+): Array<[string, Validator]>;
+export function getValidators(
+  target: { [key: string]: any },
+  property: string,
+  name: string
+): (Validator) | undefined;
+export function getValidators(
+  target: any,
+  property?: string,
+  name?: string
+):
+  | { [key: string]: any }
+  | Array<[string, Validator]>
+  | (Validator)
+  | undefined {
+  if (target === undefined || target === null || typeof target !== "object") {
+    throw new TypeError(
+      `Invalid argument 'target'. Expecting non-primative type but received ${target}.`
+    );
+  }
+
+  if (
+    property !== undefined &&
+    (property === null || typeof property !== "string")
+  ) {
+    throw new TypeError(
+      `Invalid argument 'property'. Expecting string but received ${property}.`
+    );
+  }
+
+  if (name !== undefined && typeof name !== "string") {
+    throw new TypeError(
+      `Invalid argument 'name'. Expecting string but received ${name}.`
+    );
+  }
+
+  let meta = target[MiddleOutValidatorSymbol] || {};
+
+  if (property) {
+    meta = meta[property] || [];
+    if (name) {
+      let [, value] = meta.filter((v: any[]) => (v[0] || "") === name)[0] || [
+        undefined,
+        undefined
+      ];
+      return value;
+    }
+  }
+
+  return meta;
+}
+
+export function validate(
+  target: any
+): [boolean, { [key: string]: { [key: string]: ValidationError } }] {
+  if (target === undefined || target === null || typeof target !== "object") {
+    throw new TypeError(
+      `Invalid argument 'target'. Expecting non-primative type but received ${target}.`
+    );
+  }
+
+  let errors = Object.keys(target[MiddleOutValidatorSymbol] || {}).reduce(
+    (acc: { [key: string]: { [key: string]: ValidationError } }, property) => {
+      acc[property] = {};
+      let validators: Array<[string, Validator]> = getValidators(
+        target,
+        property
+      ).reverse();
+      for (let [name, fn] of validators) {
+        if (!fn()) {
+          let { errorMessage } = Object.assign(
+            { errorMessage: `Error. ${property} failed ${name} validation` },
+            fn.config || {}
+          );
+          let displayName =
+            getMetaData(target, property, "displayName") || property;
+          let error =
+            typeof errorMessage === "function"
+              ? errorMessage({
+                  displayName,
+                  property,
+                  target,
+                  value: target[property]
+                })
+              : errorMessage;
+          acc[property][name] = {
+            property,
+            target,
+            message: error,
+            value: target[property]
+          };
+        }
+      }
+      if (!Object.keys(acc[property]).length) {
+        delete acc[property];
+      }
+      return acc;
+    },
+    {}
+  );
+  return [!Object.keys(errors).length, errors];
+}
+
+export function errorTemplate(
+  strings: TemplateStringsArray,
+  ...keys: string[]
+): ((reason: ErrorMessageData) => string) {
+  return (dict: ErrorMessageData) => {
+    //var dict = values[values.length - 1] || {};
+    let result = [strings[0]];
+    keys.forEach(function(key, i) {
+      let value = dict[key];
+      result.push(value, strings[i + 1]);
     });
+    return result.join("");
+  };
 }
 
 // export function toJSON(target: {[key: string] : any}): {} {
@@ -233,7 +309,6 @@ export function errorTemplate(strings: TemplateStringsArray, ...keys: string[]):
 // export const required = registerValidator<{}>("Required", (target, property, config) => {
 //     return target[property] !== undefined && target[property] !== null;
 // });
-
 
 // var person: {[key: string]: any} = { age: 10 };
 

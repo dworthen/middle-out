@@ -18,7 +18,7 @@
     "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "precoverage": "npm test -- --coverage",
     "prepublishOnly": "npm run build:umd",
-    "docs": "typedoc ./src/ --exclude **/*index.ts --out ./docs/ --name \"Middle Out\" --mode modules --readme ./README.md --disableOutputCheck"
+    "docs": "typedoc ./src/ --exclude **/*index.ts --out ./docs/ --name \"Middle Out\" --mode modules --readme ./README.md --disableOutputCheck --excludeNotExported --excludePrivate --excludeProtected"
   },
   "keywords": [],
   "files": [

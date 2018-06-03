@@ -2,53 +2,64 @@
  * @module Validators
  */
 
-import { checkTargetAndProperty } from '../Utils';
-import { registerValidator, ValidatorConfig } from '../Validation';
-import isMobilePhone from 'validator/lib/isMobilePhone';
+import { checkTargetAndProperty } from "../Utils";
+import { registerValidator, ValidatorConfig } from "../Validation";
+import isMobilePhone from "validator/lib/isMobilePhone";
 
-export const mobilePhone:
-    (config?: {
-        locale?: string,
-        strictMode?: boolean
-    } & ValidatorConfig | undefined) =>
-        (target: { [key: string]: any }, property: string, config?: { dataType: string } & ValidatorConfig | undefined) =>
-            void =
-    registerValidator<{
-        locale?: string,
-        strictMode?: boolean
-    }>("mobilePhone", (target, property, config = {}) => {
-        checkTargetAndProperty(target, property);
-        
-        let value = target[property];
+export const mobilePhone: (
+  config?:
+    | {
+        locale?: string;
+        strictMode?: boolean;
+      } & ValidatorConfig
+    | undefined
+) => (
+  target: { [key: string]: any },
+  property: string,
+  config?: { dataType: string } & ValidatorConfig | undefined
+) => void = registerValidator<{
+  locale?: string;
+  strictMode?: boolean;
+}>("mobilePhone", (target, property, config = {}) => {
+  checkTargetAndProperty(target, property);
 
-        if (value === undefined || value === null) {
-            return true;
-        }
+  let value = target[property];
 
-        if (typeof value !== 'string' && typeof value !== 'number') {
-            throw new TypeError(`mobilePhone expecting to work with type string|number but received ${typeof value}.`);
-        }
+  if (value === undefined || value === null) {
+    return true;
+  }
 
-        if(typeof value === 'number') {
-            value = '' + value;
-        }
+  if (typeof value !== "string" && typeof value !== "number") {
+    throw new TypeError(
+      `mobilePhone expecting to work with type string|number but received ${typeof value}.`
+    );
+  }
 
-        config = Object.assign({
-            locale: 'en-US',
-            strictMode: false
-        }, config);
+  if (typeof value === "number") {
+    value = "" + value;
+  }
 
-        let {locale, strictMode} = config;
+  config = Object.assign(
+    {
+      locale: "en-US",
+      strictMode: false
+    },
+    config
+  );
 
-        if(typeof locale !== 'string') {
-            throw new TypeError(`Invalid argument config.locale. Expecting string but received ${typeof locale}`);
-        }
+  let { locale, strictMode } = config;
 
-        if(typeof strictMode !== 'boolean') {
-            throw new TypeError(`Invalid argument config.strictMode. Expecting boolean but received ${typeof strictMode}`);
-        }
+  if (typeof locale !== "string") {
+    throw new TypeError(
+      `Invalid argument config.locale. Expecting string but received ${typeof locale}`
+    );
+  }
 
-        return isMobilePhone(value, locale as any, config);
-    });
+  if (typeof strictMode !== "boolean") {
+    throw new TypeError(
+      `Invalid argument config.strictMode. Expecting boolean but received ${typeof strictMode}`
+    );
+  }
 
-
+  return isMobilePhone(value, locale as any, config);
+});
