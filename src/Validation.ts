@@ -27,12 +27,23 @@ export interface ValidatorConfig {
   errorMessage?: string | ((obj: ErrorMessageData) => string);
 }
 
+/**
+ * ```
+ * PropertyValidator<T extends object>(target: object, property: string, config?: T) => boolean
+ * ```
+ */
 export type PropertyValidator<T extends { [key: string]: any } = {}> = ((
   target: { [key: string]: any },
   property: string,
   config?: T
 ) => boolean);
 
+/**
+ * ```
+ * Validator() => boolean
+ * ```
+ * Validator.Config?: [[ValidatorConfig]] & { [key: string]: any }
+ */
 export type Validator = {
   (): boolean;
   config?: ValidatorConfig & { [key: string]: any };
