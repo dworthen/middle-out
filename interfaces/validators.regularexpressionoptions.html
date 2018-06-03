@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ValidationError | Middle Out</title>
+	<title>regularExpressionOptions | Middle Out</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/validation.html">Validation</a>
+					<a href="../modules/validators.html">Validators</a>
 				</li>
 				<li>
-					<a href="validation.validationerror.html">ValidationError</a>
+					<a href="validators.regularexpressionoptions.html">regularExpressionOptions</a>
 				</li>
 			</ul>
-			<h1>Interface ValidationError</h1>
+			<h1>Interface regularExpressionOptions</h1>
 		</div>
 	</div>
 </header>
@@ -71,13 +71,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ValidationError</span>
+						<a href="validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">regularExpressionOptions</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
-			</section>
-			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-external-module">
-				<h3 class="tsd-before-signature">Indexable</h3>
-				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -86,10 +87,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="validation.validationerror.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="validation.validationerror.html#property" class="tsd-kind-icon">property</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="validation.validationerror.html#target" class="tsd-kind-icon">target</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="validation.validationerror.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="validators.regularexpressionoptions.html#errormessage" class="tsd-kind-icon">error<wbr>Message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="validators.regularexpressionoptions.html#regex" class="tsd-kind-icon">regex</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,43 +96,24 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="errormessage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> error<wbr>Message</h3>
+					<div class="tsd-signature tsd-kind-icon">error<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="validation.validatorconfig.html">ValidatorConfig</a>.<a href="validation.validatorconfig.html#errormessage">errorMessage</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/dfd937b/src/Validation.ts#L23">Validation.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/dfd937b/src/Validation.ts#L27">Validation.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="property" class="tsd-anchor"></a>
-					<h3>property</h3>
-					<div class="tsd-signature tsd-kind-icon">property<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="regex" class="tsd-anchor"></a>
+					<h3>regex</h3>
+					<div class="tsd-signature tsd-kind-icon">regex<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">RegExp</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/dfd937b/src/Validation.ts#L20">Validation.ts:20</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="target" class="tsd-anchor"></a>
-					<h3>target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/dfd937b/src/Validation.ts#L21">Validation.ts:21</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/dfd937b/src/Validation.ts#L22">Validation.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/dfd937b/src/validators/regularExpression.ts#L9">validators/regularExpression.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -151,10 +131,10 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/utils.html">Utils</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/validation.html">Validation</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/validators.html">Validators</a>
 					</li>
 				</ul>
@@ -162,49 +142,70 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="validation.errormessagedata.html" class="tsd-kind-icon">Error<wbr>Message<wbr>Data</a>
+						<a href="validators.compareoptions.html" class="tsd-kind-icon">compare<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="validators.emailaddressoptions.html" class="tsd-kind-icon">email<wbr>Address<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="validators.instanceofoptions.html" class="tsd-kind-icon">instance<wbr>OfOptions</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="validators.mobilephoneoptions.html" class="tsd-kind-icon">mobile<wbr>Phone<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="validators.rangeoptions.html" class="tsd-kind-icon">range<wbr>Options</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="validation.validationerror.html" class="tsd-kind-icon">Validation<wbr>Error</a>
+						<a href="validators.regularexpressionoptions.html" class="tsd-kind-icon">regular<wbr>Expression<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="validation.validationerror.html#message" class="tsd-kind-icon">message</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="validators.regularexpressionoptions.html#errormessage" class="tsd-kind-icon">error<wbr>Message</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="validation.validationerror.html#property" class="tsd-kind-icon">property</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="validation.validationerror.html#target" class="tsd-kind-icon">target</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="validation.validationerror.html#value" class="tsd-kind-icon">value</a>
+								<a href="validators.regularexpressionoptions.html#regex" class="tsd-kind-icon">regex</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="validation.validatorconfig.html" class="tsd-kind-icon">Validator<wbr>Config</a>
+						<a href="validators.stringlengthoptions.html" class="tsd-kind-icon">string<wbr>Length<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/validation.html#propertyvalidator" class="tsd-kind-icon">Property<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/validation.html#validator" class="tsd-kind-icon">Validator</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="validators.typeofoptions.html" class="tsd-kind-icon">type<wbr>OfOptions</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/validation.html#errortemplate" class="tsd-kind-icon">error<wbr>Template</a>
+						<a href="../modules/validators.html#compare" class="tsd-kind-icon">compare</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/validation.html#getvalidators" class="tsd-kind-icon">get<wbr>Validators</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/validation.html#registervalidator" class="tsd-kind-icon">register<wbr>Validator</a>
+						<a href="../modules/validators.html#creditcard" class="tsd-kind-icon">credit<wbr>Card</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/validation.html#validate" class="tsd-kind-icon">validate</a>
+						<a href="../modules/validators.html#emailaddress" class="tsd-kind-icon">email<wbr>Address</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/validators.html#instanceof" class="tsd-kind-icon">instance<wbr>Of</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/validators.html#mobilephone" class="tsd-kind-icon">mobile<wbr>Phone</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/validators.html#range" class="tsd-kind-icon">range</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/validators.html#regularexpression" class="tsd-kind-icon">regular<wbr>Expression</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/validators.html#required" class="tsd-kind-icon">required</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/validators.html#stringlength" class="tsd-kind-icon">string<wbr>Length</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/validators.html#typeof" class="tsd-kind-icon">type<wbr>Of</a>
 					</li>
 				</ul>
 			</nav>
