@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -93,10 +91,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="compare" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> compare</h3>
-					<div class="tsd-signature tsd-kind-icon">compare<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{predicate: (target: { [key: string]: any }, a: string, b: string) &#x3D;&gt; boolean,comparingProperty: string}&gt;(&quot;compare&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}let {predicate, comparingProperty} &#x3D; config || {predicate: undefined,comparingProperty: undefined};if(typeof predicate !&#x3D;&#x3D; &#x27;function&#x27;) {throw new TypeError(&#x60;Invalid argument config.predicate. Expecting (a, b) &#x3D;&gt; boolean but received ${typeof predicate}&#x60;);}if(typeof comparingProperty !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;Invalid argument config.comparingProperty. Expecting string but received ${typeof comparingProperty}&#x60;);}return predicate(target, property, comparingProperty);})</span></div>
+					<div class="tsd-signature tsd-kind-icon">compare<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{predicate: (target: { [key: string]: any }, a: string, b: string) &#x3D;&gt; boolean;comparingProperty: string;}&gt;(&quot;compare&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}let { predicate, comparingProperty } &#x3D; config || {predicate: undefined,comparingProperty: undefined};if (typeof predicate !&#x3D;&#x3D; &quot;function&quot;) {throw new TypeError(&#x60;Invalid argument config.predicate. Expecting (a, b) &#x3D;&gt; boolean but received ${typeof predicate}&#x60;);}if (typeof comparingProperty !&#x3D;&#x3D; &quot;string&quot;) {throw new TypeError(&#x60;Invalid argument config.comparingProperty. Expecting string but received ${typeof comparingProperty}&#x60;);}return predicate(target, property, comparingProperty);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/compare.ts#L8">validators/compare.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/compare.ts#L8">validators/compare.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -104,21 +102,21 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 										<ul class="tsd-parameters">
 											<li class="tsd-parameter-siganture">
 												<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 												</ul>
 												<ul class="tsd-descriptions">
 													<li class="tsd-description">
@@ -136,7 +134,7 @@
 																<h5>property: <span class="tsd-signature-type">string</span></h5>
 															</li>
 															<li>
-																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 															</li>
 														</ul>
 														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -153,10 +151,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="creditcard" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> credit<wbr>Card</h3>
-					<div class="tsd-signature tsd-kind-icon">credit<wbr>Card<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator(&quot;creditCard&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;creditCard expecting to work with type string but received ${typeof target[property]}.&#x60;);}return isCreditCard(target[property]);})</span></div>
+					<div class="tsd-signature tsd-kind-icon">credit<wbr>Card<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator(&quot;creditCard&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &quot;string&quot;) {throw new TypeError(&#x60;creditCard expecting to work with type string but received ${typeof target[property]}.&#x60;);}return isCreditCard(target[property]);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/creditCard.ts#L9">validators/creditCard.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/creditCard.ts#L9">validators/creditCard.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -164,21 +162,21 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 										<ul class="tsd-parameters">
 											<li class="tsd-parameter-siganture">
 												<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 												</ul>
 												<ul class="tsd-descriptions">
 													<li class="tsd-description">
@@ -196,7 +194,7 @@
 																<h5>property: <span class="tsd-signature-type">string</span></h5>
 															</li>
 															<li>
-																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 															</li>
 														</ul>
 														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -213,10 +211,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="emailaddress" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> email<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">email<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{allow_display_name?: boolean,require_display_name?: boolean,allow_utf8_local_part?: boolean,require_tld?: boolean}&gt;(&quot;emailAddress&quot;, (target, property, config &#x3D; {}) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;emailAddress expecting to work with type string but received ${typeof target[property]}.&#x60;);}config &#x3D; Object.assign({allow_display_name: false,require_display_name: false,allow_utf8_local_part: true,require_tld: true}, config);let { allow_display_name, require_display_name, allow_utf8_local_part, require_tld } &#x3D; configif( typeof allow_display_name !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.allow_display_name&#x27;. Expecting boolean but recieved ${allow_display_name}&#x60;);}if( typeof require_display_name !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.require_display_name&#x27;. Expecting boolean but recieved ${require_display_name}&#x60;);}if( typeof allow_utf8_local_part !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.allow_utf8_local_part&#x27;. Expecting boolean but recieved ${allow_utf8_local_part}&#x60;);}if( typeof require_tld !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.require_tld&#x27;. Expecting boolean but recieved ${require_tld}&#x60;);}return isEmail(target[property], config);})</span></div>
+					<div class="tsd-signature tsd-kind-icon">email<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{allow_display_name?: boolean;require_display_name?: boolean;allow_utf8_local_part?: boolean;require_tld?: boolean;}&gt;(&quot;emailAddress&quot;, (target, property, config &#x3D; {}) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &quot;string&quot;) {throw new TypeError(&#x60;emailAddress expecting to work with type string but received ${typeof target[property]}.&#x60;);}config &#x3D; Object.assign({allow_display_name: false,require_display_name: false,allow_utf8_local_part: true,require_tld: true},config);let {allow_display_name,require_display_name,allow_utf8_local_part,require_tld} &#x3D; config;if (typeof allow_display_name !&#x3D;&#x3D; &quot;boolean&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.allow_display_name&#x27;. Expecting boolean but recieved ${allow_display_name}&#x60;);}if (typeof require_display_name !&#x3D;&#x3D; &quot;boolean&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.require_display_name&#x27;. Expecting boolean but recieved ${require_display_name}&#x60;);}if (typeof allow_utf8_local_part !&#x3D;&#x3D; &quot;boolean&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.allow_utf8_local_part&#x27;. Expecting boolean but recieved ${allow_utf8_local_part}&#x60;);}if (typeof require_tld !&#x3D;&#x3D; &quot;boolean&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.require_tld&#x27;. Expecting boolean but recieved ${require_tld}&#x60;);}return isEmail(target[property], config);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/emailAddress.ts#L9">validators/emailAddress.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/emailAddress.ts#L9">validators/emailAddress.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -224,14 +222,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -270,10 +268,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="instanceof" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> instance<wbr>Of</h3>
-					<div class="tsd-signature tsd-kind-icon">instance<wbr>Of<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ constor: any }&gt;(&quot;instanceOf&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (config &#x3D;&#x3D;&#x3D; undefined || config &#x3D;&#x3D;&#x3D; null || config.constor &#x3D;&#x3D;&#x3D; undefined || config.constor &#x3D;&#x3D;&#x3D; null) {throw new TypeError(&#x60;Invalid argument &#x27;config&#x27;. Expecting {constor: any} but received ${config}.&#x60;);}return target[property] instanceof config.constor;})</span></div>
+					<div class="tsd-signature tsd-kind-icon">instance<wbr>Of<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ constor: any }&gt;(&quot;instanceOf&quot;,(target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (config &#x3D;&#x3D;&#x3D; undefined ||config &#x3D;&#x3D;&#x3D; null ||config.constor &#x3D;&#x3D;&#x3D; undefined ||config.constor &#x3D;&#x3D;&#x3D; null) {throw new TypeError(&#x60;Invalid argument &#x27;config&#x27;. Expecting {constor: any} but received ${config}.&#x60;);}return target[property] instanceof config.constor;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/instanceOf.ts#L8">validators/instanceOf.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/instanceOf.ts#L8">validators/instanceOf.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -281,21 +279,21 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 										<ul class="tsd-parameters">
 											<li class="tsd-parameter-siganture">
 												<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 												</ul>
 												<ul class="tsd-descriptions">
 													<li class="tsd-description">
@@ -313,7 +311,7 @@
 																<h5>property: <span class="tsd-signature-type">string</span></h5>
 															</li>
 															<li>
-																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 															</li>
 														</ul>
 														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -330,10 +328,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="mobilephone" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> mobile<wbr>Phone</h3>
-					<div class="tsd-signature tsd-kind-icon">mobile<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{locale?: string,strictMode?: boolean}&gt;(&quot;mobilePhone&quot;, (target, property, config &#x3D; {}) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof value !&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; typeof value !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;mobilePhone expecting to work with type string|number but received ${typeof value}.&#x60;);}if(typeof value &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {value &#x3D; &#x27;&#x27; + value;}config &#x3D; Object.assign({locale: &#x27;en-US&#x27;,strictMode: false}, config);let {locale, strictMode} &#x3D; config;if(typeof locale !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;Invalid argument config.locale. Expecting string but received ${typeof locale}&#x60;);}if(typeof strictMode !&#x3D;&#x3D; &#x27;boolean&#x27;) {throw new TypeError(&#x60;Invalid argument config.strictMode. Expecting boolean but received ${typeof strictMode}&#x60;);}return isMobilePhone(value, locale as any, config);})</span></div>
+					<div class="tsd-signature tsd-kind-icon">mobile<wbr>Phone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{locale?: string;strictMode?: boolean;}&gt;(&quot;mobilePhone&quot;, (target, property, config &#x3D; {}) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof value !&#x3D;&#x3D; &quot;string&quot; &amp;&amp; typeof value !&#x3D;&#x3D; &quot;number&quot;) {throw new TypeError(&#x60;mobilePhone expecting to work with type string|number but received ${typeof value}.&#x60;);}if (typeof value &#x3D;&#x3D;&#x3D; &quot;number&quot;) {value &#x3D; &quot;&quot; + value;}config &#x3D; Object.assign({locale: &quot;en-US&quot;,strictMode: false},config);let { locale, strictMode } &#x3D; config;if (typeof locale !&#x3D;&#x3D; &quot;string&quot;) {throw new TypeError(&#x60;Invalid argument config.locale. Expecting string but received ${typeof locale}&#x60;);}if (typeof strictMode !&#x3D;&#x3D; &quot;boolean&quot;) {throw new TypeError(&#x60;Invalid argument config.strictMode. Expecting boolean but received ${typeof strictMode}&#x60;);}return isMobilePhone(value, locale as any, config);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/mobilePhone.ts#L9">validators/mobilePhone.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/mobilePhone.ts#L9">validators/mobilePhone.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -341,21 +339,21 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 										<ul class="tsd-parameters">
 											<li class="tsd-parameter-siganture">
 												<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 												</ul>
 												<ul class="tsd-descriptions">
 													<li class="tsd-description">
@@ -373,7 +371,7 @@
 																<h5>property: <span class="tsd-signature-type">string</span></h5>
 															</li>
 															<li>
-																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 															</li>
 														</ul>
 														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -390,10 +388,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="range" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> range</h3>
-					<div class="tsd-signature tsd-kind-icon">range<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ min?: number, max?: number }&gt;(&quot;range&quot;, (target, property, config &#x3D; { min: Number.NEGATIVE_INFINITY, max: Infinity }) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;range expecting to work with type number but received ${typeof target[property]}.&#x60;);}let { min, max } &#x3D; Object.assign({ min: Number.NEGATIVE_INFINITY, max: Infinity }, config);if( typeof min !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.min&#x27;. Expecting number but recieved ${min}&#x60;);}if( typeof max !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.max&#x27;. Expecting number but recieved ${max}&#x60;);}return target[property] &gt;&#x3D; min &amp;&amp; target[property] &lt;&#x3D; max;})</span></div>
+					<div class="tsd-signature tsd-kind-icon">range<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ min?: number; max?: number }&gt;(&quot;range&quot;,(target,property,config &#x3D; { min: Number.NEGATIVE_INFINITY, max: Infinity }) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &quot;number&quot;) {throw new TypeError(&#x60;range expecting to work with type number but received ${typeof target[property]}.&#x60;);}let { min, max } &#x3D; Object.assign({ min: Number.NEGATIVE_INFINITY, max: Infinity },config);if (typeof min !&#x3D;&#x3D; &quot;number&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.min&#x27;. Expecting number but recieved ${min}&#x60;);}if (typeof max !&#x3D;&#x3D; &quot;number&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.max&#x27;. Expecting number but recieved ${max}&#x60;);}return target[property] &gt;&#x3D; min &amp;&amp; target[property] &lt;&#x3D; max;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/range.ts#L8">validators/range.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/range.ts#L8">validators/range.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -401,14 +399,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -447,10 +445,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="regularexpression" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> regular<wbr>Expression</h3>
-					<div class="tsd-signature tsd-kind-icon">regular<wbr>Expression<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{regex: RegExp}&gt;(&quot;regularExpression&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof value !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;regularExpression expecting to work with type string but received ${typeof value}.&#x60;);}let {regex} &#x3D; config || { regex: undefined };if(!(regex instanceof RegExp)) {throw new TypeError(&#x60;Invalid argument config.regex. Expecting string but received ${typeof regex}&#x60;);}return regex.test(value);})</span></div>
+					<div class="tsd-signature tsd-kind-icon">regular<wbr>Expression<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{regex: RegExp;}&gt;(&quot;regularExpression&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);let value &#x3D; target[property];if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof value !&#x3D;&#x3D; &quot;string&quot;) {throw new TypeError(&#x60;regularExpression expecting to work with type string but received ${typeof value}.&#x60;);}let { regex } &#x3D; config || { regex: undefined };if (!(regex instanceof RegExp)) {throw new TypeError(&#x60;Invalid argument config.regex. Expecting string but received ${typeof regex}&#x60;);}return regex.test(value);})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/regularExpression.ts#L8">validators/regularExpression.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/regularExpression.ts#L8">validators/regularExpression.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -458,21 +456,21 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 										<ul class="tsd-parameters">
 											<li class="tsd-parameter-siganture">
 												<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 												</ul>
 												<ul class="tsd-descriptions">
 													<li class="tsd-description">
@@ -490,7 +488,7 @@
 																<h5>property: <span class="tsd-signature-type">string</span></h5>
 															</li>
 															<li>
-																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 															</li>
 														</ul>
 														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -510,7 +508,7 @@
 					<div class="tsd-signature tsd-kind-icon">required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator(&quot;required&quot;, (target, property) &#x3D;&gt; {checkTargetAndProperty(target, property);return target[property] !&#x3D;&#x3D; null &amp;&amp; target[property] !&#x3D;&#x3D; undefined;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/required.ts#L8">validators/required.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/required.ts#L8">validators/required.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -518,14 +516,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -564,10 +562,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="stringlength" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> string<wbr>Length</h3>
-					<div class="tsd-signature tsd-kind-icon">string<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ min?: number, max?: number }&gt;(&quot;StringLength&quot;, (target, property, config &#x3D; { min: 0, max: Infinity }) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;StringLength expecting to work with type string but received ${typeof target[property]}.&#x60;);}let { min, max } &#x3D; Object.assign({ min: 0, max: Infinity }, config);if( typeof min !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.min&#x27;. Expecting number but recieved ${min}&#x60;);}if( typeof max !&#x3D;&#x3D; &#x27;number&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config.max&#x27;. Expecting number but recieved ${max}&#x60;);}return target[property].length &gt;&#x3D; min &amp;&amp; target[property].length &lt;&#x3D; max;})</span></div>
+					<div class="tsd-signature tsd-kind-icon">string<wbr>Length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ min?: number; max?: number }&gt;(&quot;StringLength&quot;,(target, property, config &#x3D; { min: 0, max: Infinity }) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (typeof target[property] !&#x3D;&#x3D; &quot;string&quot;) {throw new TypeError(&#x60;StringLength expecting to work with type string but received ${typeof target[property]}.&#x60;);}let { min, max } &#x3D; Object.assign({ min: 0, max: Infinity }, config);if (typeof min !&#x3D;&#x3D; &quot;number&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.min&#x27;. Expecting number but recieved ${min}&#x60;);}if (typeof max !&#x3D;&#x3D; &quot;number&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config.max&#x27;. Expecting number but recieved ${max}&#x60;);}return target[property].length &gt;&#x3D; min &amp;&amp; target[property].length &lt;&#x3D; max;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/stringLength.ts#L9">validators/stringLength.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/stringLength.ts#L8">validators/stringLength.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -575,14 +573,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
@@ -621,10 +619,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="typeof" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> type<wbr>Of</h3>
-					<div class="tsd-signature tsd-kind-icon">type<wbr>Of<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ dataType: string }&gt;(&quot;typeOf&quot;, (target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (config &#x3D;&#x3D;&#x3D; undefined || config &#x3D;&#x3D;&#x3D; null || config.dataType &#x3D;&#x3D;&#x3D; undefined || config.dataType &#x3D;&#x3D;&#x3D; null || typeof config.dataType !&#x3D;&#x3D; &#x27;string&#x27;) {throw new TypeError(&#x60;Invalid argument &#x27;config&#x27;. Expecting {dataType: string} but received ${config}.&#x60;);}return typeof target[property] &#x3D;&#x3D;&#x3D; config.dataType;})</span></div>
+					<div class="tsd-signature tsd-kind-icon">type<wbr>Of<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;registerValidator&lt;{ dataType: string }&gt;(&quot;typeOf&quot;,(target, property, config) &#x3D;&gt; {checkTargetAndProperty(target, property);if (target[property] &#x3D;&#x3D;&#x3D; undefined || target[property] &#x3D;&#x3D;&#x3D; null) {return true;}if (config &#x3D;&#x3D;&#x3D; undefined ||config &#x3D;&#x3D;&#x3D; null ||config.dataType &#x3D;&#x3D;&#x3D; undefined ||config.dataType &#x3D;&#x3D;&#x3D; null ||typeof config.dataType !&#x3D;&#x3D; &quot;string&quot;) {throw new TypeError(&#x60;Invalid argument &#x27;config&#x27;. Expecting {dataType: string} but received ${config}.&#x60;);}return typeof target[property] &#x3D;&#x3D;&#x3D; config.dataType;})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/27c9f36/src/validators/typeOf.ts#L8">validators/typeOf.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/dworthen/middle-out/blob/cb579e5/src/validators/typeOf.ts#L8">validators/typeOf.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -632,21 +630,21 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-variable tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 										<ul class="tsd-parameters">
 											<li class="tsd-parameter-siganture">
 												<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+													<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 												</ul>
 												<ul class="tsd-descriptions">
 													<li class="tsd-description">
@@ -664,7 +662,7 @@
 																<h5>property: <span class="tsd-signature-type">string</span></h5>
 															</li>
 															<li>
-																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/_validation_.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+																<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> &amp; </span><a href="../interfaces/validation.validatorconfig.html" class="tsd-signature-type">ValidatorConfig</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 															</li>
 														</ul>
 														<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -687,13 +685,13 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_reflection_.html">"<wbr>Reflection"</a>
+						<a href="reflection.html">Reflection</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_utils_.html">"<wbr>Utils"</a>
+						<a href="utils.html">Utils</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_validation_.html">"<wbr>Validation"</a>
+						<a href="validation.html">Validation</a>
 					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="validators.html">Validators</a>
